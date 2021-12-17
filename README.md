@@ -1,4 +1,4 @@
-# Instructions for using DeepLabCut and MoSeq
+# Processing novelty data from Akiti et al. 2021
 
 [Preprocessing raw video data](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/Docs/Preprocessing.md)
 
