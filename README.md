@@ -1,53 +1,53 @@
 # Processing novelty data (Akiti et al. 2021)
 
-[Preprocessing raw video data](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/Docs/Preprocessing.md)
+[Preprocessing raw video data](https://github.com/ckakiti/Novelty_paper_2021/blob/main/Preprocessing.md)
 
-[Training a New Network for DeepLabCut](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/Docs/Training_a_new_network.md)
+[Training a New Network for DeepLabCut](https://github.com/ckakiti/Novelty_paper_2021/blob/master/Docs/Training_a_new_network.md)
 
-[Running an existing network (Korleki)](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/Docs/Using_DLC_in_UchidaLab_Korleki.md)
+[Running an existing network (Korleki)](https://github.com/ckakiti/Novelty_paper_2021/blob/master/Docs/Using_DLC_in_UchidaLab_Korleki.md)
 
-[MoSeq Commands](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/Docs/MoSeq_Example_Command.md)
+[MoSeq Commands](https://github.com/ckakiti/Novelty_paper_2021/blob/master/Docs/MoSeq_Example_Command.md)
 
 # Novelty analysis code
 
-Code for novelty behavior analysis of processed data (see [Preprocessing.md](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/Docs/Preprocessing.md) for instructions on processing raw video data)
+Code for novelty behavior analysis of processed data (see [Preprocessing.md](https://github.com/ckakiti/Novelty_paper_2021/blob/main/Preprocessing.md) for instructions on processing raw video data)
 
 Following sections:
-- [DLC workflow](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/README.md#dlc-workflow)
-- [MoSeq workflow](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/README.md#moseq-workflow)
-- [Fiber photometry workflow](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/README.md#fiber-photometry-workflow)
+- [DLC workflow](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#dlc-workflow)
+- [MoSeq workflow](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#moseq-workflow)
+- [Fiber photometry workflow](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#fiber-photometry-workflow)
 
 ## DLC Workflow
-0. [Config_NovAna.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/README.md#0-config_novanam)
-1. [MarkObjPos.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/README.md#1-markobjposm)
-2. [Analysis.m](https://github.com/ckakiti/Novelty_analysis_KA#2-analysism)
-3. [TimeStatistic.m](https://github.com/ckakiti/Novelty_analysis_KA#3-timestatisticm)
-4. [MiceIndex.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/README.md#4-miceindexm)
-5. [Plot_compare.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/README.md#5-plot_comparem)
-6. [bout_analysis.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/README.md#4-bout_analysism)
-7. [video_novelty_multi_labels_2011.m](https://github.com/ckakiti/Novelty_analysis_KA#7-video_novelty_multi_labels_2011m-mitsuko-code)
-8. [analy_novelty2103](https://github.com/ckakiti/Novelty_analysis_KA#8-analy_novelty2103-mitsuko-code)
-9. [analy_novelty_multi_sessions_2012](https://github.com/ckakiti/Novelty_analysis_KA#9-analy_novelty_multi_sessions_2012-mitsuko-code)
+0. [Config_NovAna.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#0-config_novanam)
+1. [MarkObjPos.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#1-markobjposm)
+2. [Analysis.m](https://github.com/ckakiti/Novelty_paper_2021#2-analysism)
+3. [TimeStatistic.m](https://github.com/ckakiti/Novelty_paper_2021#3-timestatisticm)
+4. [MiceIndex.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#4-miceindexm)
+5. [Plot_compare.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#5-plot_comparem)
+6. [bout_analysis.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#4-bout_analysism)
+7. [video_novelty_multi_labels_2011.m](https://github.com/ckakiti/Novelty_paper_2021#7-video_novelty_multi_labels_2011m-mitsuko-code)
+8. [analy_novelty2103](https://github.com/ckakiti/Novelty_paper_2021#8-analy_novelty2103-mitsuko-code)
+9. [analy_novelty_multi_sessions_2012](https://github.com/ckakiti/Novelty_paper_2021#9-analy_novelty_multi_sessions_2012-mitsuko-code)
 
 ## DLC Script Details
-### 0. [Config_NovAna.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/Config_NovAna.m)
+### 0. [Config_NovAna.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/Config_NovAna.m)
 - basic information for current dataset including name of network used to run DeepLabCut, video file format (.mp4 or .avi), vid length and width, fps, radius_cm, and angle radius
 - IMPORTANT: info is different for each dataset, double check before running other analysis scripts
 - Input: manual editing of file
 - Output: parameters saved in .m file to be loaded in later scripts
 
-### 1. [MarkObjPos.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/MarkObjPos.m)
+### 1. [MarkObjPos.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/MarkObjPos.m)
 - Manually select arena boundaries and object position for all sessions
 - Has option to select LED position and extrapolate object positions for other 3 corners of arena (4obj)
 - Input: Config_NovAna, .csv output files from DLC
 - Output: Arena_Obj_Pos.m and/or Arena_Obj_Pos_4obj.m
 
-### 2. [Analysis.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/Analysis.m)
+### 2. [Analysis.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/Analysis.m)
 - Extracting DLC-based information - amount of time spent near object, angle relative to object, velocity, etc.
 - Input: Config_NovAna, Arena_Obj_Pos.mat
 - Output: Trajectories and Heatmap from first 10 min of each session, .mat file containing Labels and radius_cm
 
-### 3. [TimeStatistic.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/FurtherAnalysis/TimeStatistic.m)
+### 3. [TimeStatistic.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/FurtherAnalysis/TimeStatistic.m)
 - create summary array of time spent near object, time spent in periphery of arena, or total distance run
 - similar to summary array created by bout_analysis.m and area_analysis.m
 - Input: Config_NovAna, .mat files from Analysis.m
@@ -59,12 +59,12 @@ Following sections:
 - Input: manual editing of file
 - Output: parameters ('Mice' structure) saved in m. file to be loaded in later scripts
 
-### 5. [Plot_compare.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/FurtherAnalysis/Plot_compare.m)
+### 5. [Plot_compare.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/FurtherAnalysis/Plot_compare.m)
 - plotting different scalar statistics across sessions and mice (e.g. time spent around object, orientation, bout num, bout len, total  distance run, area covered)
 - Input: Config_NovAna, MiceIndex, summary file (e.g. TimeStatistic, TimeStatistic_nose_totalDistCut, boutAnalysis_nose)
 - Output: tif files (timeNearObj_10min.tif, orientToObj_10min.tif, boutNum_10min_nose.tif, boutLen_10min_nose.tif, totalDistanceRun_10min_nose.tif, etc)
 
-### 6. [bout_analysis.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/FurtherAnalysis/bout_analysis.m)
+### 6. [bout_analysis.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/FurtherAnalysis/bout_analysis.m)
 - similar to TimeStatistic, create summary array of number of bouts and average bout length across sessions and days
 - can also create structure containing frame numbers for each poke and approach (needed for MoSeqEventAlignedAnalysis.m)
 - Input: Config_NovAna, MiceIndex, .mat files from Analysis.m
@@ -90,24 +90,24 @@ Following sections:
   - exponential fit plots + statistics
 
 ## MoSeq Workflow
-0. [Shell_Script.sh](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/README.md#0-shell_scriptsh)
-1. [ModelDataTransfer.py](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/README.md#1-modeldatatransferpy)
-2. [MiceIndex_blank.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/README.md#2-miceindex_blankm)
-3. [extract_uuid](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/README.md#3-extract_uuid)
+0. [Shell_Script.sh](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#0-shell_scriptsh)
+1. [ModelDataTransfer.py](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#1-modeldatatransferpy)
+2. [MiceIndex_blank.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#2-miceindex_blankm)
+3. [extract_uuid](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#3-extract_uuid)
 
 ## MoSeq Script Details
-### 0. [Shell_Script.sh](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/MoSeqAnalysis/Shell_Script_Template.sh)
+### 0. [Shell_Script.sh](https://github.com/ckakiti/Novelty_paper_2021/blob/master/MoSeqAnalysis/Shell_Script_Template.sh)
 - contains command lines to run the following: moseq2-extract, moseq2-pca, moseq2-model, and moseq2-viz
 
-### 1. [ModelDataTransfer.py](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/MoSeqAnalysis/ModelDataTransfer.py)
+### 1. [ModelDataTransfer.py](https://github.com/ckakiti/Novelty_paper_2021/blob/master/MoSeqAnalysis/ModelDataTransfer.py)
 - Transfers the data generated by MoSeq to MATLAB readable format
 - Input: moseq2-index.yaml, my_model.p
 - Output: MoSeqDataFrame.mat
 
 ### 2. MiceIndex_blank.m
-- by hand, edit [MiceIndex template](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/MoSeqAnalysis/Mice_Index_Template.m) to include list of mice names and which novelty condition they were assigned
+- by hand, edit [MiceIndex template](https://github.com/ckakiti/Novelty_paper_2021/blob/master/MoSeqAnalysis/Mice_Index_Template.m) to include list of mice names and which novelty condition they were assigned
 
-### 3. [extract_uuid](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/MoSeqAnalysis/extract_uuid.m)
+### 3. [extract_uuid](https://github.com/ckakiti/Novelty_paper_2021/blob/master/MoSeqAnalysis/extract_uuid.m)
 - automated way to extract all uuids from moseq2-index.yaml file
 - follow directions in header before running code (need to use visual studio)
 - Inputs: MiceIndex_blank.m, moseq2-index_extract
@@ -116,16 +116,16 @@ Following sections:
 
 ## Fiber Photometry Workflow
 0. Preprocessing requirements
-1. [photometry_water_tone_Korleki_2105.m](https://github.com/ckakiti/Novelty_analysis_KA#1-photometry_water_tone_korleki_2105m-mitsuko-code)
-2. [detect_video_LED_2010.m](https://github.com/ckakiti/Novelty_analysis_KA#2-detect_video_led_2010m-mitsuko-code)
-3. [photometry_novelty_Korleki_2105.m](https://github.com/ckakiti/Novelty_analysis_KA#3-photometry_novelty_korleki_2105m-mitsuko-code)
-4. [KW_1_LED.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/README.md#1-kw_1_ledm)
-5. [FPdat_import.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/README.md#2-fpdat_importm)
-6. [bout_analysis.m / by hand](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/README.md#3-bout_analysism)
+1. [photometry_water_tone_Korleki_2105.m](https://github.com/ckakiti/Novelty_paper_2021#1-photometry_water_tone_korleki_2105m-mitsuko-code)
+2. [detect_video_LED_2010.m](https://github.com/ckakiti/Novelty_paper_2021#2-detect_video_led_2010m-mitsuko-code)
+3. [photometry_novelty_Korleki_2105.m](https://github.com/ckakiti/Novelty_paper_2021#3-photometry_novelty_korleki_2105m-mitsuko-code)
+4. [KW_1_LED.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#1-kw_1_ledm)
+5. [FPdat_import.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#2-fpdat_importm)
+6. [bout_analysis.m / by hand](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#3-bout_analysism)
 
 ### 0. Preprocessing requirements
 - for each animal, need:
-  - Arena_Obj_Pos.mat, including marking LED location (generated by [MarkObjPos.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/MarkObjPos.m))
+  - Arena_Obj_Pos.mat, including marking LED location (generated by [MarkObjPos.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/MarkObjPos.m))
 - for each photometry session, need:
   - FP_data and tone_data (generated by custom LabView code on day of recording)
   - DLC csv file
@@ -149,7 +149,7 @@ Following sections:
 - Input: akiti_miceID_210318.xlsx, DLC_label.mat
 - Output: ANIMAL_FPaligned_SESSION.tif
 
-### 4. [KW_1_LED.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/FurtherAnalysis/KW_1_LED.m)
+### 4. [KW_1_LED.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/FurtherAnalysis/KW_1_LED.m)
 - use detect_video_LED_2010.m instead
 - extract frames when LED was on (in rgb video)
 - NOTE: TAKES A LONG TIME TO RUN
@@ -160,7 +160,7 @@ Following sections:
   -  save_###/save_###_max (pixel intensity for each frame of video - takes a while to run)
   -  LED_on (onset of LED flash across video)
 
-### 5. [FPdat_import.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/FPdat_import.m)
+### 5. [FPdat_import.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/FPdat_import.m)
 - read and save raw photometry signal (generated by custom program)
 - Input:
   - LED_on (from KW_1_LED.m)
@@ -169,7 +169,7 @@ Following sections:
   - mouse_date_FP.mat (containing GCaMP, tdTom, TTL, TTL_on, pos_within_TTL)
   - mouse_date_rgb_ts (containing rgb indices and corresponding FP indices)
 
-### 6. [bout_analysis.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/FurtherAnalysis/bout_analysis.m) OR hand-annotate
+### 6. [bout_analysis.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/FurtherAnalysis/bout_analysis.m) OR hand-annotate
 - annotate rgb/depth video with significant events (e.g. pokes, bout start, reward delivery)
 - Input: Config_NovAna, MiceIndex, .mat files from Analysis.m
 - Output: PokesApproaches.mat, DatasetName_poke_labels_N1.csv
