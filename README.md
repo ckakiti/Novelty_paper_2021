@@ -8,8 +8,6 @@
 
 [MoSeq Commands](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/Docs/MoSeq_Example_Command.md)
 
-[Running MoSeq on the cluster](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/Docs/MoSeq_on_cluster.md)
-
 # Novelty analysis code
 
 Code for novelty behavior analysis of processed data (see [Preprocessing.md](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/Docs/Preprocessing.md) for instructions on processing raw video data)
