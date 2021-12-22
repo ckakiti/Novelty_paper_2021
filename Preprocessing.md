@@ -48,7 +48,7 @@ rsync -avr --include '*/' --include '*/190413/*/proc/results_00.yaml' --include 
  - for some reason if you run DLC on raw .mp4 files, it reads the wrong frame rate (not the case if you first convert to .avi)
  - edit line 7 to match your data
 #### 7. follow instructions to either run DLC on .avi files with [existing network](https://github.com/ckakiti/Novelty_paper_2021/blob/main/Running_DLC_Trained.md) or [create a new network](https://github.com/ckakiti/Novelty_paper_2021/blob/main/Running_DLC_NewNetwork.md)
-#### 8. follow workflow to [analyze DLC-generated files](https://github.com/ckakiti/Novelty_analysis_KA#dlc-workflow)
+#### 8. follow workflow to [analyze DLC-generated files](https://github.com/ckakiti/Novelty_paper_2021#dlc-workflow)
 ## MoSeq-specific preprocessing
 #### 9. create copy of [Shell_Script_Template.sh](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/MoSeqAnalysis/Shell_Script_Template.sh) and move it to ```groupname```
 #### 10. edit ```Shell_Script.sh``` (created in step 9)
