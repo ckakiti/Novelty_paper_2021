@@ -34,7 +34,7 @@ rsync -a --include '*/' --include '*.mp4' --include 'rgb_ts*' --exclude '*' . /m
 ```
  - rsync for specific file paths and pruning empty directories:
 ```
-rsync -avr --include '*/' --include '*/190413/*/proc/results_00.yaml' --include '*/190413/*/proc/results_00.h5' --exclude '*' --prune-empty-dirs . /media/alex/DataDrive1/MoSeqData/combine3L/Capoeira_MoSeq/
+rsync -avr --include '*/' --include '*/190413/*/proc/results_00.yaml' --include '*/190413/*/proc/results_00.h5' --exclude '*' --prune-empty-dirs . /media/alex/DataDrive1/MoSeqData/groupname/groupname_MoSeq/
 ```
 
 #### 4. in MATLAB, run [MoSeqMoveRGB.m](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/MoSeqAnalysis/MoSeqMoveRGB.m)
