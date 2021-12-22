@@ -50,7 +50,7 @@ rsync -avr --include '*/' --include '*/190413/*/proc/results_00.yaml' --include 
 #### 7. follow instructions to either run DLC on .avi files with [existing network](https://github.com/ckakiti/Novelty_paper_2021/blob/main/Running_DLC_Trained.md) or [create a new network](https://github.com/ckakiti/Novelty_paper_2021/blob/main/Running_DLC_NewNetwork.md)
 #### 8. follow workflow to [analyze DLC-generated files](https://github.com/ckakiti/Novelty_paper_2021#dlc-workflow)
 ## MoSeq-specific preprocessing
-#### 9. create copy of [Shell_Script_Template.sh](https://github.com/ckakiti/Novelty_analysis_KA/blob/master/MoSeqAnalysis/Shell_Script_Template.sh) and move it to ```groupname```
+#### 9. create copy of [Shell_Script_Template.sh](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/Shell_Script_Template.sh) and move it to ```groupname```
 #### 10. edit ```Shell_Script.sh``` (created in step 9)
  - this is a document to streamline extraction, modeling, and visualization of MoSeq data (without having to execute instructions line-by-line)
  - for extraction, you'll need to create a new line for each .dat file in your dataset (see instructions in template file to quickly get path for each file)
