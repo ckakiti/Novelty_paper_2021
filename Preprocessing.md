@@ -1,6 +1,6 @@
 # Preprocessing
 Follow these instructions if you've acquired data from the Xbox Kinect using the Datta lab's custom video capture software.
-Processes raw data so it can be analysed with DLC or MoSeq
+Processes raw data (with MATLAB) so it can be analysed with DLC or MoSeq.
 
 ## Raw data structure
 ```
