@@ -60,4 +60,4 @@ rsync -avr --include '*/' --include '*/190413/*/proc/results_00.yaml' --include 
  - run ```source activate moseq_1.2``` (for instructions to create this environment, see original MoSeq documentation)
 #### 12. run ```Shell_Script.sh``` in terminal (within moseq environment)
  - will execute all commands you specified when editing the file in step 10
-#### 13. follow workflow to [analyze MoSeq-generated files](https://github.com/ckakiti/Novelty_analysis_KA#moseq-workflow)
+#### 13. follow workflow to [analyze MoSeq-generated files](https://github.com/ckakiti/Novelty_paper_2021#moseq-workflow)
