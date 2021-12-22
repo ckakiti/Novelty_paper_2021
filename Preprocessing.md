@@ -21,7 +21,7 @@ Processes raw data so it can be analysed with DLC or MoSeq
 ```
 
 ## Separating DLC- and MoSeq-specific files
-#### 1. create blank folder on computer that can run DLC and MoSeq
+#### 1. create blank folder on a computer that can run DLC and MoSeq
  - this top folder will be referred to as ```groupname``` for the rest of instructions
  - these instructions assume you're using the computer "alex" (Linux) and copying raw data into ```/media/alex/DataDrive1/MoSeqData/```
 #### 2. within ```groupname``` create another blank folder labeled ```groupname_MoSeq```
