@@ -1,16 +1,6 @@
 # Processing novelty data (Akiti et al. 2021)
 
-[Preprocessing raw video data](https://github.com/ckakiti/Novelty_paper_2021/blob/main/Preprocessing.md)
-
-[Training a New Network for DeepLabCut](https://github.com/ckakiti/Novelty_paper_2021/blob/master/Docs/Training_a_new_network.md)
-
-[Running an existing network (Korleki)](https://github.com/ckakiti/Novelty_paper_2021/blob/master/Docs/Using_DLC_in_UchidaLab_Korleki.md)
-
-[MoSeq Commands](https://github.com/ckakiti/Novelty_paper_2021/blob/master/Docs/MoSeq_Example_Command.md)
-
-# Novelty analysis code
-
-Code for novelty behavior analysis of processed data (see [Preprocessing.md](https://github.com/ckakiti/Novelty_paper_2021/blob/main/Preprocessing.md) for instructions on processing raw video data)
+Data structure is explained [here](https://github.com/ckakiti/Novelty_paper_2021/). Data analysis workflow is as follows: 
 
 Following sections:
 - [DLC workflow](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#dlc-workflow)
