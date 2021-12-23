@@ -1,6 +1,6 @@
 # Processing novelty data (Akiti et al. 2021)
 
-Data structure is explained [here](https://github.com/ckakiti/Novelty_paper_2021/). Data analysis workflow is as follows: 
+Data structure is explained [here](https://github.com/ckakiti/Novelty_paper_2021/blob/main/DataStructure.md). Data analysis workflow is as follows: 
 
 Following sections:
 - [DLC workflow](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#dlc-workflow)
