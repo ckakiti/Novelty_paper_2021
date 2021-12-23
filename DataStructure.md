@@ -1,5 +1,5 @@
 # Data structure
-Each .mat file is named based on the following file structure:
+DLC data is stored in .mat files. Given .mat files were renamed based on the following file structure:
 
 ```
 .
@@ -15,6 +15,8 @@ Each .mat file is named based on the following file structure:
 |   -- bout_multi.mat
 -- akiti_miceID_211222.xlsx
 ```
+
+There is a separate .mat file for each session. MoSeq data is stored in `MoSeq_MiceIndex_wLabels_combine3L.mat`. Information about each mouse is stored in akiti_miceID_211222.xlsx. 
 
 # DLC-specific preprocessing
 
