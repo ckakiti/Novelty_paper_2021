@@ -2,7 +2,7 @@
 
 Data used in Akiti et al. 2021 can be found at LOCATION_OF_DATA. Data structure is explained [here](https://github.com/ckakiti/Novelty_paper_2021/blob/main/DataStructure.md). The following gives an overview of the code that produced each figure. Specifics for running each piece of code can be found in the comments within the code itself.
 
-## Figure 1-4
+## Figures 1-4
 
 ### 1. [Plot_compare.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/FurtherAnalysis/Plot_compare.m)
 - plotting different scalar statistics across sessions and mice (e.g. time spent around object, orientation, bout num, bout len, total  distance run, area covered)
@@ -76,7 +76,7 @@ Data used in Akiti et al. 2021 can be found at LOCATION_OF_DATA. Data structure 
 - Input: Config_NovAna, MiceIndex, .mat files from Analysis.m
 - Output: PokesApproaches.mat, DatasetName_poke_labels_N1.csv
 
-## Figure 7-8
+## Figures 7-8
 
 ### 1. filename
 - description
