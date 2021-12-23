@@ -1,6 +1,6 @@
 # Processing novelty data (Akiti et al. 2021)
 
-Data used in Akiti et al. 2021 can be found at LOCATION_OF_DATA. Data structure is explained [here](https://github.com/ckakiti/Novelty_paper_2021/blob/main/DataStructure.md). The following describes the code that produced each figure.
+Data used in Akiti et al. 2021 can be found at LOCATION_OF_DATA. Data structure is explained [here](https://github.com/ckakiti/Novelty_paper_2021/blob/main/DataStructure.md). The following gives an overview of the code that produced each figure. Specifics for running each piece of code can be found in the comments within the code itself.
 
 ## DLC Workflow
 
