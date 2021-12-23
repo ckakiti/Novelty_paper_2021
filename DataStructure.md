@@ -17,11 +17,3 @@ DLC data is stored in .mat files. Given .mat files were renamed based on the fol
 ```
 
 There is a separate .mat file for each session. MoSeq data is stored in `MoSeq_MiceIndex_wLabels_combine3L.mat`. Information about each mouse is stored in akiti_miceID_211222.xlsx. 
-
-# DLC-specific preprocessing
-
-follow workflow to [analyze DLC-generated files](https://github.com/ckakiti/Novelty_paper_2021#dlc-workflow)
-
-# MoSeq-specific preprocessing
-
-follow workflow to [analyze MoSeq-generated files](https://github.com/ckakiti/Novelty_paper_2021#moseq-workflow)
