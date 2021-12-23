@@ -1,9 +1,6 @@
 # Processing novelty data (Akiti et al. 2021)
 
-Data structure is explained [here](https://github.com/ckakiti/Novelty_paper_2021/blob/main/DataStructure.md). Data analysis workflow is divided into the following sections: 
-- [DLC workflow](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#dlc-workflow)
-- [MoSeq workflow](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#moseq-workflow)
-- [Fiber photometry workflow](https://github.com/ckakiti/Novelty_paper_2021/blob/master/README.md#fiber-photometry-workflow)
+Data can be found at LOCATION_OF_DATA. Data structure is explained [here](https://github.com/ckakiti/Novelty_paper_2021/blob/main/DataStructure.md). The following describes the code that produced each figure. Follow the links to access each piece of code.
 
 ## DLC Workflow
 
