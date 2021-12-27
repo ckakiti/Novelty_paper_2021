@@ -3,7 +3,7 @@ DLC data is stored in .mat files. Given .mat files were renamed based on the fol
 
 ```
 .
-+-- group_name
++-- group1_name
 |   +-- animal1_name
 |       +-- session1_name
 |           -- DLC_label.mat
@@ -13,6 +13,8 @@ DLC data is stored in .mat files. Given .mat files were renamed based on the fol
 |   +-- animal3_name
 |   -- bout.mat
 |   -- bout_multi.mat
++-- group2_name
++-- group3_name
 -- akiti_miceID_211222.xlsx
 ```
 
