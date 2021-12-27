@@ -14,6 +14,8 @@ Data used in Akiti et al. 2021 can be found at LOCATION_OF_DATA. Data structure 
 - Input: akiti_miceID_210318.xlsx, DLC_label.mat
 - Output: bout_multi.mat, imagesc behavior plots (Fig 1e-g)
 
+## Figure 2
+
 ### video_novelty_multi_labels_2011.m (Mitsuko code)
 - creates DLC_label.mat (containing Labels and session_start)
 - Input: akiti_miceID_210318.xlsx (animal name, group, condition), ArenaObjPos.m, DLC csv file
