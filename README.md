@@ -4,10 +4,10 @@ Data used in Akiti et al. 2021 can be found at LOCATION_OF_DATA. Data structure 
 
 ## Figures 1-4
 
-### 1. [Plot_compare.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/FurtherAnalysis/Plot_compare.m)
+### Figure 1. [Plot_compare_trim.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/FurtherAnalysis/Plot_compare.m)
 - plotting different scalar statistics across sessions and mice (e.g. time spent around object, orientation, bout num, bout len, total  distance run, area covered)
-- Input: Config_NovAna, MiceIndex, summary file (e.g. TimeStatistic, TimeStatistic_nose_totalDistCut, boutAnalysis_nose)
-- Output: tif files (timeNearObj_10min.tif, orientToObj_10min.tif, boutNum_10min_nose.tif, boutLen_10min_nose.tif, totalDistanceRun_10min_nose.tif, etc)
+- Input: 
+- Output: timeNearObj_10min.tif (Fig 1d)
 
 ### 2. [bout_analysis.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/FurtherAnalysis/bout_analysis.m)
 - similar to TimeStatistic, create summary array of number of bouts and average bout length across sessions and days
