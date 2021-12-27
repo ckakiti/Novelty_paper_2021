@@ -2,9 +2,9 @@
 
 Data used in Akiti et al. 2021 can be found at LOCATION_OF_DATA. Data structure is explained [here](https://github.com/ckakiti/Novelty_paper_2021/blob/main/DataStructure.md). The following gives an overview of the code that produced each figure. Specifics for running each piece of code can be found in the comments within the code itself.
 
-## Figures 1-4
+## Figure 1
 
-### Figure 1. [Plot_compare_trim.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/Plot_compare_trim.m)
+### [Plot_compare_trim.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/Plot_compare_trim.m)
 - plotting different scalar statistics across sessions and mice (e.g. time spent around object, orientation, bout num, bout len, total  distance run, area covered)
 - Input: 
 - Output: timeNearObj_10min.tif (Fig 1d)
