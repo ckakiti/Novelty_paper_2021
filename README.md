@@ -4,7 +4,7 @@ Data used in Akiti et al. 2021 can be found at LOCATION_OF_DATA. Data structure 
 
 ## Figures 1-4
 
-### Figure 1. [Plot_compare_trim.m](https://github.com/ckakiti/Novelty_paper_2021/blob/master/FurtherAnalysis/Plot_compare.m)
+### Figure 1. [Plot_compare_trim.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/Plot_compare_trim.m)
 - plotting different scalar statistics across sessions and mice (e.g. time spent around object, orientation, bout num, bout len, total  distance run, area covered)
 - Input: 
 - Output: timeNearObj_10min.tif (Fig 1d)
