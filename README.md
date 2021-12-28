@@ -12,7 +12,9 @@ Data used in Akiti et al. 2021 can be found at LOCATION_OF_DATA. Data structure 
 ### [analy_novelty2103.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/analy_novelty2103.m)
 - creates bout_multi.mat (needed for plotting multi-day behavior imagesc)
 - Input: akiti_miceID_210318.xlsx, DLC_label.mat
-- Output: bout_multi.mat, imagesc behavior plots (Fig 1e-g)
+- Output: 
+  - bout_multi.mat, imagesc behavior plots (Fig 1e-g, Fig 2d-e)
+  - violin plots (Fig 2d-e)
 
 ## Figure 2
 
