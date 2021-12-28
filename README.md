@@ -26,21 +26,21 @@ Data used in Akiti et al. 2021 can be found at LOCATION_OF_DATA. Data structure 
 
 ## Figure 3
 
-### 1. filename
+### filename
 - description
 - Input: 
 - Output: 
 
 ## Figure 4
 
-### 1. filename
+### filename
 - description
 - Input: 
 - Output: 
 
 ## Figure 5
 
-### 1. filename
+### filename
 - description
 - Input: 
 - Output: 
@@ -82,14 +82,14 @@ Data used in Akiti et al. 2021 can be found at LOCATION_OF_DATA. Data structure 
 
 ## Figures 7
 
-### 1. filename
+### filename
 - description
 - Input: 
 - Output: 
 
 ## Figure 8
 
-### 1. filename
+### filename
 - description
 - Input: 
 - Output: 
