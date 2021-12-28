@@ -24,6 +24,20 @@ Data used in Akiti et al. 2021 can be found at LOCATION_OF_DATA. Data structure 
 - Output: 
   - bout_early_late.tif, distToObj_nose-tail.tif, distToObj.tif, nose-Tail.tif (Fig 2a)
 
+## Figure 3
+
+### 1. filename
+- description
+- Input: 
+- Output: 
+
+## Figure 4
+
+### 1. filename
+- description
+- Input: 
+- Output: 
+
 ## Figure 5
 
 ### 1. filename
@@ -66,7 +80,14 @@ Data used in Akiti et al. 2021 can be found at LOCATION_OF_DATA. Data structure 
 - Input: Config_NovAna, MiceIndex, .mat files from Analysis.m
 - Output: PokesApproaches.mat, DatasetName_poke_labels_N1.csv
 
-## Figures 7-8
+## Figures 7
+
+### 1. filename
+- description
+- Input: 
+- Output: 
+
+## Figure 8
 
 ### 1. filename
 - description
