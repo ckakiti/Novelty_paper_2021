@@ -1,10 +1,10 @@
-function analy_novelty_multi_sessions_2012
+%function analy_novelty_multi_sessions_2012
 
 %this is similar to video_Operant_multi_labels_2010, but for novelty in
 %Korleki's rig
 % for single animals
 
-cd('/Users/mitsukouchida/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior');
+cd('/Users/cakiti/Dropbox (Uchida Lab)/Korleki Akiti/Behavior/novelty_paper_2021')
 [animal_info,text,raw] = xlsread('akiti_miceID_210318.xlsx');
 animal = text(2:end,3);
 condition = text(2:end,9);
@@ -30,24 +30,17 @@ Tail_closer = [];
 Bout_body_length=[];Body_length_bin = [];Body_length_min = [];Bout_body_length_novelty = [];Body_length_closest=[];
 
 for group_n = 1
-groupfolder = strcat('/Users/mitsukouchida/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior/',group{group_n});
+groupfolder = strcat('/Users/cakiti/Dropbox (Uchida Lab)/Korleki Akiti/Behavior/novelty_paper_2021/',group{group_n});
 cd(groupfolder);
 
 
-% for animal_n = 1:length(animal)
-% for animal_n = 18 
-% for animal_n = find(contains(animal,'stim'))   
-% for animal_n = find(contains(animal,'cont')) 
-% for animal_n = find(contains(animal,'6OHDA')) 
-% for animal_n = find(contains(animal,'saline')) 
-% for animal_n = find(strcmp(condition,'stimulus_FP'))'
 ind = find(strcmp(condition,group{group_n}))';
 for animal_n = ind(1)
     animal_n
     animal{animal_n}
     animalfolder = strcat(groupfolder,'/',animal{animal_n});
     cd(animalfolder);
-    load('Arena_Obj_Pos','obj_center','arena') %xy positions of object, arena
+%     load('Arena_Obj_Pos','obj_center','arena') %xy positions of object, arena
 
     Labels_multi = [];
 for test_n = test_chosen
@@ -550,63 +543,6 @@ set(gcf,'color','w')
 % set(gca,'tickdir','out')
 % set(gca,'TickLength',2*(get(gca,'TickLength')))
 % set(gca,'FontSize',20)
-% set(gcf,'color','w')
-
-%% body stretch
-
-% Bout_body_length = [];
-% for i = 1:length(bout_end)
-% %     bout_body_length = max(0.15*Labels(bout_start(i):bout_end(i),35));
-%     bout_body_length = mean(0.15*Labels(bout_start(i):bout_end(i),35));
-%     Bout_body_length = [Bout_body_length,bout_body_length];
-% end
-% 
-% body_length_smooth = smoothdata(Bout_body_length,'lowess',4000,'SamplePoints',bout_start);
-% figure
-% plot(t_bout/(15*60),0.15*Labels(frame_within,35))
-% hold on
-% plot(bout_start/(15*60),body_length_smooth,'k-','Linewidth',2);
-% title('body length in bouts')
-% xlabel('min')
-% ylabel('cm')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',15)
-% set(gcf,'color','w')
-% 
-% %% speed related to object
-% 
-% head_speed_object_smooth = movmean(15*0.15*Labels(:,36),4000);
-% head_speed_lateral_smooth = movmean(15*0.15*Labels(:,37),4000);
-% figure
-% plot(session_time,head_speed_object_smooth,'r-')
-% hold on
-% plot(session_time,head_speed_lateral_smooth,'k-')
-% legend('toward/away from','lateral')
-% title('head speed related to object')
-% xlabel('min')
-% ylabel('cm/s')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',15)
-% set(gcf,'color','w')
-% 
-% %% distance from wall
-% 
-% tail_wall_smooth = smoothdata(0.15*Labels(:,38),'lowess',4000);
-% figure
-% plot(session_time,0.15*Labels(:,38))
-% hold on
-% plot(session_time,tail_wall_smooth,'k-','Linewidth',2)
-% title('tail from wall')
-% xlabel('min')
-% ylabel('cm')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',15)
 % set(gcf,'color','w')
 
 end

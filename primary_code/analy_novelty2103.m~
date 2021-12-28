@@ -312,7 +312,11 @@ end
 end
 
 
-%% Fig 1e: time spent near object
+
+
+%% plot multi animal data
+
+%% time spent near object
 Bout_ratio_min = Bout_ratio(:,1:15*60:end);
 Total_bout_ratio = sum(Bout_ratio_min');
 [Total_bout_ratio_sort, sort_index] = sort(Total_bout_ratio);
@@ -386,7 +390,7 @@ Bout_ratio_sort_baseline = mean(Bout_ratio_sort_5min(:,1:10),2);
 % Bout_ratio_normalized = log10(Bout_ratio_sort_5min./Bout_ratio_sort_baseline);
 Bout_ratio_normalized = Bout_ratio_sort_5min - Bout_ratio_sort_baseline;
 
-%% violin plots
+%%
 figure
 subplot(1,2,1)
 plot(Bout_ratio_normalized','k-')
@@ -449,7 +453,7 @@ set(gcf,'color','w')
 % set(gca,'FontSize',20)
 % set(gcf,'color','w')
 
-%% Fig 1g: approch bout duration
+%% approch bout duration
 Total_bout_duration_max = sum(Bout_duration_max');
 [Total_bout_duration_sort, sort_index] = sort(Total_bout_duration_max);
 Bout_duration_max_sort = Bout_duration_max(sort_index,:);
@@ -492,7 +496,7 @@ set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',20)
 set(gcf,'color','w')
 
-%% violin plots
+%%
 Bout_duration_max_5min = movmean(Bout_duration_max,[0,4],2);
 Bout_duration_max_5min = Bout_duration_max_5min(:,1:5:end); 
 Bout_duration_max_baseline = mean(Bout_duration_max_5min(:,1:10),2);
@@ -507,7 +511,7 @@ set(gca,'FontSize',20)
 set(gcf,'color','w')
 
 
-%% nose-tail
+%nose-tail
 Total_ratio_nose_tail = sum(Ratio_nose_tail','omitnan');
 [Total_ratio_nose_tail_sort, sort_index] = sort(Total_ratio_nose_tail);
 Ratio_nose_tail_sort = Ratio_nose_tail(sort_index,:);
@@ -571,8 +575,7 @@ set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',20)
 set(gcf,'color','w')
 
-%% Fig 1f
-% approch with tail behind
+%approch with tail behind
 Bout_tail_behind_min = Bout_tail_behind_frequency(:,1:15*60:end);
 Total_bout_tail_behind = sum(Bout_tail_behind_min');
 [Total_bout_tail_behind_sort, sort_index_tail_behind] = sort(Total_bout_tail_behind);
@@ -716,7 +719,6 @@ set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',20)
 set(gcf,'color','w')
 
-%% violin plots
 Bout_5min = movmean(Bout_min,[0,4],2);
 Bout_5min = Bout_5min(:,1:5:end); 
 Bout_5min_baseline = mean(Bout_5min(:,1:10),2);
@@ -729,7 +731,6 @@ set(gca,'tickdir','out')
 set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',20)
 set(gcf,'color','w')
-
 
 Bout_tail_behind_5min = movmean(Bout_tail_behind_min,[0,4],2);
 Bout_tail_behind_5min = Bout_tail_behind_5min(:,1:5:end); 
@@ -767,7 +768,6 @@ set(gca,'tickdir','out')
 set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',20)
 set(gcf,'color','w')
-
 
 figure
 subplot(1,2,1)
@@ -821,7 +821,6 @@ set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',15)
 set(gcf,'color','w')
 
-%%
 figure
 subplot(1,2,1)
 violinplot([mean(Bout_with_tail_5min_normalized(:,11:12),2),...
@@ -867,7 +866,7 @@ set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',20)
 set(gcf,'color','w')
 
-%% Fig 1d (betas)
+
 % mean_with_tail = mean(Bout_with_tail_min(:,76:end),2);
 mean_with_tail = mean(Bout_with_tail_min(:,61:75),2); %11-25min
 mean_tail_before = mean(Bout_with_tail_min(:,1:50),2);
@@ -876,6 +875,29 @@ other_animal = (mean_with_tail<mean_tail_before);
 
 mean_tail_behind_10min = mean(Bout_tail_behind_min(:,51:60),2); %10min after novelty
 mean_tail_behind_d24 = mean(Bout_tail_behind_min(:,76:end),2); %day2-4
+
+figure
+subplot(1,2,1)
+histogram(mean_tail_behind_10min - mean_tail_behind_d24,-10:2:10)
+xlabel('/min (10min minus day2-4)')
+ylabel('animal number')
+title('bout frequency with tail behind')
+box off
+set(gca,'tickdir','out')
+set(gca,'TickLength',2*(get(gca,'TickLength')))
+set(gca,'FontSize',20)
+set(gcf,'color','w')
+
+subplot(1,2,2)
+histogram(mean_with_tail - mean_tail_before,-10:2:10)
+xlabel('/min (d2-4 minus baseline)')
+ylabel('animal number')
+title('bout frequency with tail exposure')
+box off
+set(gca,'tickdir','out')
+set(gca,'TickLength',2*(get(gca,'TickLength')))
+set(gca,'FontSize',20)
+set(gcf,'color','w')
 
 Beta_with_tail_time = [];P_with_tail_time=[];
 for ani = 1:size(Bout_with_tail_min,1)
@@ -929,7 +951,6 @@ set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',15)
 set(gcf,'color','w')
 
-%%
 figure
 subplot(1,3,1)
 plot(mean(Bout_tail_behind_min),'r-','Linewidth',2) 
