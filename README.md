@@ -4,10 +4,10 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 
 ## Figure 1
 
-### [Plot_compare_trim.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/Plot_compare_trim.m)
-- plotting different scalar statistics across sessions and mice (e.g. time spent around object, orientation, bout num, bout len, total  distance run, area covered)
-- Input: 
-- Output: timeNearObj_10min.tif (Fig 1d)
+### novelty_comparison_multi_days
+- description
+- Input:
+- Output: Fig 1d
 
 ### [analy_novelty2103.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/analy_novelty2103.m)
 - creates bout_multi.mat (needed for plotting multi-day behavior imagesc)
@@ -27,10 +27,10 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 
 ## Figure 3
 
-### filename
+### novelty_comparison_multi_days
 - description
 - Input: 
-- Output: 
+- Output: Fig 3b, Fig 1d
 
 ## Figure 4
 
