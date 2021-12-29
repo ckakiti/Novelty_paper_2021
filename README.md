@@ -4,7 +4,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 
 ## Figure 1
 
-### novelty_comparison_multi_days
+### [novelty_comparison_multi_days](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/novelty_comparison_multi_days.m)
 - description
 - Input:
 - Output: Fig 1d
@@ -27,7 +27,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 
 ## Figure 3
 
-### novelty_comparison_multi_days
+### [novelty_comparison_multi_days](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/novelty_comparison_multi_days.m)
 - description
 - Input: 
 - Output: Fig 3b, Fig 1d
