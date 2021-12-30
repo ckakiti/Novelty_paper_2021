@@ -78,3 +78,10 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - description
 - Input: 
 - Output: 
+
+## Supplementary Figure 2
+
+### [novelty_comparison_multi_days](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/novelty_comparison_multi_days.m)
+- description
+- Input: 
+- Output: Supp Fig 2 (cumulative duration)
