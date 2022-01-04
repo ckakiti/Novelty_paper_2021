@@ -1,4 +1,7 @@
 % function analy_novelty2103
+clear
+close all
+clc
 
 %this code is similar to 2011 but use multiple session multiple animals
 
@@ -43,19 +46,12 @@ cd('/Users/cakiti/Dropbox (Uchida Lab)/Korleki Akiti/Behavior/novelty_paper_2021
 animal = text(2:end,3);
 condition = text(2:end,9);
 
-% group = {'Capoeira','Planets'};
-% animal = {'Jupiter_6OHDA','Mars_6OHDA','Neptune_6OHDA','Pluto_6OHDA','Uranus_6OHDA','Venus_6OHDA',...
-%     'Earth_saline','Mercury_saline','Saturn_saline'};
-% % animal = {'Au_stim','Ginga_stim','Negativa_stim','Esquiva_cont','MeiaLua_cont','Queixada_cont'};
-% test = {'hab1','hab2','novel1','novel2','novel3','novel4','novel5','novel6'};
-test = {'hab1','hab2','novel1','novel2','novel3','novel4'};
+test = {'hab1','hab2','novel1','novel2','novel3','novel4','novel5','novel6'}; % for lesion
+% test = {'hab1','hab2','novel1','novel2','novel3','novel4'}; % for stim/cont
 session_length = 25; %min
 test_chosen = 1:length(test);
 % test_chosen = 3;
 test_length = length(test_chosen);
-% group_n = 2;
-% groupfolder = strcat('/Users/mitsukouchida/Desktop/Korleki/',group{group_n});
-% cd(groupfolder);
 group = {'stimulus','contextual','saline','6OHDA','FP_all'};
 
 Bout_ratio = []; Ratio_nose_tail = [];mean_nose_tail = [];std_nose_tail = [];Bout_tail_behind_frequency = [];
@@ -65,25 +61,16 @@ Bout_body_length=[];Body_length_bin = [];Body_length_min = [];Bout_body_length_n
 Bout_start = []; Bout_type = [];
 
 % for group_n = [1,3] %when combine groups, change save folder at the end
-for group_n = 2
+for group_n = 4
 groupfolder = strcat('/Users/cakiti/Dropbox (Uchida Lab)/Korleki Akiti/',...
     'Behavior/novelty_paper_2021/',group{group_n});
 cd(groupfolder);
 
-
-% for animal_n = 1:length(animal)
-% for animal_n = 18 
-% for animal_n = find(contains(animal,'stim'))   
-% for animal_n = find(contains(animal,'cont')) 
-% for animal_n = find(contains(animal,'6OHDA')) 
-% for animal_n = find(contains(animal,'saline')) 
-% for animal_n = find(strcmp(condition,'stimulus_FP'))'
 for animal_n = find(strcmp(condition,group{group_n}))'
     animal_n
     animal{animal_n}
     animalfolder = strcat(groupfolder,'/',animal{animal_n});
     cd(animalfolder);
-%     load('Arena_Obj_Pos','obj_center','arena') %xy positions of object, arena
 
     Labels_multi = [];
 for test_n = test_chosen
@@ -97,10 +84,9 @@ Labels_multi = [Labels_multi;Labels(1:session_length*60*15,:)];
 end
 Labels = Labels_multi;
 
-%% approach-retreat bouts
+% approach-retreat bouts
 
 object_threshold = 7; % cm
-% session_time = ((1:size(Labels,1))/15)/60; %min
 
 tail_within = (0.15*Labels(:,34)<object_threshold); %tail is close
 tail_ratio = smoothdata(tail_within,'lowess',4000);
@@ -118,53 +104,8 @@ if length(bout_end)<length(bout_start)
     bout_start = bout_start(1:end-1);
 end
 
-% figure
-% subplot(1,2,1)
-% % for i = 1:length(bout_end)
-% for i = 1:20
-%     nose_x = 0.15*Labels(bout_start(i):bout_end(i),2);
-%     nose_y = 0.15*Labels(bout_start(i):bout_end(i),3);
-%     tail_x = 0.15*Labels(bout_start(i):bout_end(i),8);
-%     tail_y = 0.15*Labels(bout_start(i):bout_end(i),9);
-%     plot(nose_x,nose_y,'r-')
-%     hold on
-%     plot(tail_x,tail_y,'k-')
-%     xlabel('cm')
-%     ylabel('cm')
-%     title('early bouts')
-% end
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',20)
-% 
-% subplot(1,2,2)
-% for i = (length(bout_end)-19):length(bout_end)
-%     nose_x = 0.15*Labels(bout_start(i):bout_end(i),2);
-%     nose_y = 0.15*Labels(bout_start(i):bout_end(i),3);
-%     tail_x = 0.15*Labels(bout_start(i):bout_end(i),11);
-%     tail_y = 0.15*Labels(bout_start(i):bout_end(i),12);
-%     plot(nose_x,nose_y,'r-')
-%     hold on
-%     plot(tail_x,tail_y,'k-')
-%     legend('nose','tail')
-%     xlabel('cm')
-%     ylabel('cm')
-%     title('late bouts')
-% end
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',20)
-% set(gcf,'color','w')
-
 bout_length = (bout_end - bout_start)/15;
-% bout_frequency = zeros(1,size(Labels,1));
-% bout_frequency(bout_start) = 1;
-% bout_start_frequency = movsum(bout_frequency,900); %900 frame, 60s, 1min
-% bout_start_frequency_smooth = smoothdata(bout_start_frequency,'lowess',4000);
 bout_ratio = movmean(frame_within,[0 15*60-1]); %900 frame, 60s, 1min
-% bout_ratio = smoothdata(frame_within,'lowess',4000);
 Bout_tail = [];Bout_nose = [];t_bout_tail_behind = [];t_bout_with_tail=[]; bout_type =[];
 for i = 1:length(bout_end)
     bout_tail = min(0.15*Labels(bout_start(i):bout_end(i),34));
@@ -189,7 +130,6 @@ bout_nose_tail_closest = Bout_nose - Bout_tail;
 bout_tail_behind = zeros(1,size(Labels,1));
 bout_tail_behind(t_bout_tail_behind) = 1;
 bout_tail_behind_frequency = movsum(bout_tail_behind,[0 899]); %900 frame, 60s, 1min
-% bout_tail_behind_frequency_smooth = smoothdata(bout_tail_behind_frequency,'lowess',4000);
 bout_with_tail = zeros(1,size(Labels,1));
 bout_with_tail(t_bout_with_tail) = 1;
 bout_with_tail_frequency = movsum(bout_with_tail,[0 899]); %900 frame, 60s, 1min
@@ -198,7 +138,6 @@ bout_duration = zeros(1,size(Labels,1));
 bout_duration(bout_start) = bout_length;
 bout_duration = reshape(bout_duration,900,[]); %900 frame, 60s, 1min
 bout_duration_max = max(bout_duration,[],1); 
-% bout_duration_max_smooth = smoothdata(bout_duration_max,'lowess',4000);
 
 
 bin = 15*60; %1 min
@@ -219,7 +158,6 @@ for i = 1:binN
 end
 
 tail_closer = (Labels(:,34)<Labels(:,32) & 0.15*Labels(:,34)<object_threshold); %tail is closer and near object
-% tail_closer = smoothdata(tail_closer,'lowess',4000);
 
 bout_start_novel1 = (bout_start>2*25*15*60);
 bout_start_novel1 = bout_start(bout_start_novel1);
@@ -237,14 +175,13 @@ Tail_closer = [Tail_closer;tail_closer'];
 Bout_type = [Bout_type;bout_type(1:40)];
 Bout_start = [Bout_start;bout_start_novel1];
 
-%% body stretch
+% body stretch
 
 bout_body_length_all = [];
 ind = find(0.15*Labels(:,35)>9); %remove >9cm
 Labels(ind,35)=NaN;
 for i = 1:length(bout_end)
     bout_body_length = max(0.15*Labels(bout_start(i):bout_end(i),35),[],'omitnan');
-%     bout_body_length = mean(0.15*Labels(bout_start(i):bout_end(i),35));
     bout_body_length_all = [bout_body_length_all,bout_body_length];
 end
 
@@ -293,7 +230,6 @@ for binN = 1:(test_length*session_length*15*60/bin)
     ind = find(bout_start(1:length(bout_end)) > bin*(binN-1) & bout_start(1:length(bout_end)) <= bin*binN);
     if length(ind)>0
         body_length_this_bin = mean(bout_body_length_all(ind));
-%         body_length_this_bin = max(bout_body_length_all(ind));
         else
             body_length_this_bin = NaN;
     end
@@ -318,28 +254,6 @@ Total_bout_ratio = sum(Bout_ratio_min');
 [Total_bout_ratio_sort, sort_index] = sort(Total_bout_ratio);
 % sort_index
 Bout_ratio_sort = Bout_ratio_min(sort_index,:);
-
-% mean_bout_ratio = mean(reshape(bout_ratio,1,[]));
-% std_bout_ratio = std(reshape(bout_ratio,1,[]));
-% thresh1 = 0.114-0.046;
-% thresh2 = 0.114+3*0.046;
-% approach_start = []; exploration_start = [];
-% for i=1:size(Bout_ratio_sort,1)
-%     ind = find(Bout_ratio_sort(i,:)>thresh1,1,'first');
-%     if length(ind)>0
-%     approach_start = [approach_start,ceil(ind/(15*60))];
-%     else
-%         approach_start = [approach_start,31];
-%     end
-%     ind = find(Bout_ratio_sort(i,:)>thresh2,1,'first');
-%     if length(ind)>0
-%     exploration_start = [exploration_start,ceil(ind/(15*60))];
-%     else
-%         exploration_start = [exploration_start,31];
-%     end
-% end
-% approach_start
-% exploration_start
 
 figure
 subplot(2,1,1)
@@ -571,7 +485,7 @@ set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',20)
 set(gcf,'color','w')
 
-%% Fig 1f, 3c/d colorplots
+%% Fig 1f, 3c/d colorplots, 4d/e colorplots
 % approch with tail behind
 Bout_tail_behind_min = Bout_tail_behind_frequency(:,1:15*60:end);
 Total_bout_tail_behind = sum(Bout_tail_behind_min');
@@ -590,7 +504,6 @@ Bout_tail_behind_frequency_sort = Bout_tail_behind_min(sort_index_with_tail,:);
 figure
 subplot(2,3,2)
 imagesc(Bout_tail_behind_frequency_sort,[0,8])
-% colormap yellowblue
 colormap summer
 colorbar
 h=gca;
@@ -613,13 +526,6 @@ m_plot = mean(Bout_tail_behind_min,'omitnan');
 s_plot = std(Bout_tail_behind_min,'omitnan')/sqrt(size(Bout_tail_behind_min,1));
 subplot(2,3,5)
 errorbar_patch(plotWin,m_plot,s_plot,plotColors{1});
-% plot(Bout_tail_behind_min')
-% hold on
-% plot(mean(Bout_tail_behind_min),'k-','Linewidth',2) 
-% plot(Bout_tail_behind_frequency_smooth')
-% hold on
-% plot(mean(Bout_tail_behind_frequency_smooth),'k-','Linewidth',2) 
-% plot([0 30],[thresh thresh],'--') %mean in habituation
 h=gca;
 h.XTick = 0:50:25*test_length; %every 50min
 h.XTickLabel = 0:50:25*test_length;
@@ -635,7 +541,6 @@ set(gcf,'color','w')
 
 subplot(2,3,3)
 imagesc(Bout_with_tail_frequency_sort,[0,8])
-% colormap yellowblue
 colormap summer
 colorbar
 h=gca;
@@ -655,9 +560,6 @@ m_plot = mean(Bout_with_tail_min,'omitnan');
 s_plot = std(Bout_with_tail_min,'omitnan')/sqrt(size(Bout_tail_behind_min,1));
 subplot(2,3,6)
 errorbar_patch(plotWin,m_plot,s_plot,plotColors{1});
-% plot(Bout_with_tail_min')
-% hold on
-% plot(mean(Bout_with_tail_min),'k-','Linewidth',2) 
 h=gca;
 h.XTick = 0:50:25*test_length; %every 50min
 h.XTickLabel = 0:50:25*test_length;
@@ -681,7 +583,6 @@ Bout_frequency_sort = Bout_min(sort_index,:);
 
 subplot(2,3,1)
 imagesc(Bout_frequency_sort,[0,8])
-% colormap yellowblue
 colormap summer
 colorbar
 h=gca;
@@ -701,9 +602,6 @@ m_plot = mean(Bout_min,'omitnan');
 s_plot = std(Bout_min,'omitnan')/sqrt(size(Bout_tail_behind_min,1));
 subplot(2,3,4)
 errorbar_patch(plotWin,m_plot,s_plot,plotColors{1});
-% plot(Bout_min')
-% hold on
-% plot(mean(Bout_min),'k-','Linewidth',2) 
 h=gca;
 h.XTick = 0:50:25*test_length; %every 50min
 h.XTickLabel = 0:50:25*test_length;
@@ -929,433 +827,7 @@ set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',15)
 set(gcf,'color','w')
 
-%%
-figure
-subplot(1,3,1)
-plot(mean(Bout_tail_behind_min),'r-','Linewidth',2) 
-hold on
-plot(mean(Bout_with_tail_min),'k-','Linewidth',2) 
-h=gca;
-h.XTick = 0:50:25*test_length; %every 50min
-h.XTickLabel = 0:50:25*test_length;
-axis([0 25*test_length 0 6])
-xlabel('min')
-ylabel('/min')
-% legend('tail behind','tail exposure')
-title('all animals')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',20)
-set(gcf,'color','w')
-
-subplot(1,3,2)
-plot(mean(Bout_tail_behind_min(approach_animal,:)),'r-','Linewidth',2) 
-hold on
-plot(mean(Bout_with_tail_min(approach_animal,:)),'k-','Linewidth',2) 
-h=gca;
-h.XTick = 0:50:25*test_length; %every 50min
-h.XTickLabel = 0:50:25*test_length;
-axis([0 25*test_length 0 6])
-xlabel('min')
-ylabel('/min')
-% legend('tail behind','tail exposure')
-title('approach animal')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',20)
-set(gcf,'color','w')
-
-subplot(1,3,3)
-plot(mean(Bout_tail_behind_min(other_animal,:)),'r-','Linewidth',2) 
-hold on
-plot(mean(Bout_with_tail_min(other_animal,:)),'k-','Linewidth',2) 
-h=gca;
-h.XTick = 0:50:25*test_length; %every 50min
-h.XTickLabel = 0:50:25*test_length;
-axis([0 25*test_length 0 6])
-xlabel('min')
-ylabel('/min')
-legend('tail behind','tail exposure')
-title('avoid animals')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',20)
-set(gcf,'color','w')
-
-%% nose or tail time spent near object (not used)
-figure
-
-Total_bout_ratio = sum(Nose_ratio');
-[Total_bout_ratio_sort, sort_index] = sort(Total_bout_ratio);
-sort_index;
-Nose_ratio_sort = Nose_ratio(sort_index,:);
-
-subplot(2,3,1)
-imagesc(Nose_ratio_sort,[0,0.3])
-% colormap yellowblue
-colormap summer
-colorbar
-h=gca;
-h.XTick = 0:50*60*15:25*60*15*test_length; %every 50min
-h.XTickLabel = 0:50:25*test_length;
-title('nose time spent near object')
-xlabel('min')
-ylabel('animal')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',20)
-set(gcf,'color','w')
-
-subplot(2,3,4)
-plot(Nose_ratio_sort')
-hold on
-plot(mean(Nose_ratio_sort),'k-','Linewidth',2) 
-h=gca;
-h.XTick = 0:50*60*15:25*60*15*test_length; %every 50min
-h.XTickLabel = 0:50:25*test_length;
-axis([0 25*60*15*test_length 0 0.3])
-xlabel('min')
-ylabel('fraction')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',20)
-set(gcf,'color','w')
-
-Total_bout_ratio = sum(Tail_ratio');
-[Total_bout_ratio_sort, sort_index] = sort(Total_bout_ratio);
-sort_index;
-Tail_ratio_sort = Tail_ratio(sort_index,:);
-
-subplot(2,3,2)
-imagesc(Tail_ratio_sort,[0,0.3])
-% colormap yellowblue
-colormap summer
-colorbar
-h=gca;
-h.XTick = 0:50*60*15:25*60*15*test_length; %every 50min
-h.XTickLabel = 0:50:25*test_length;
-title('tail time spent near object')
-xlabel('min')
-ylabel('animal')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',20)
-set(gcf,'color','w')
-
-subplot(2,3,5)
-plot(Tail_ratio_sort')
-hold on
-plot(mean(Tail_ratio_sort),'k-','Linewidth',2) 
-h=gca;
-h.XTick = 0:50*60*15:25*60*15*test_length; %every 50min
-h.XTickLabel = 0:50:25*test_length;
-axis([0 25*60*15*test_length 0 0.3])
-xlabel('min')
-ylabel('fraction')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',20)
-set(gcf,'color','w')
-
-Nose_tail_ratio = Nose_ratio-Tail_ratio;
-Total_bout_ratio = sum(Nose_tail_ratio');
-[Total_bout_ratio_sort, sort_index] = sort(Total_bout_ratio);
-sort_index;
-Nose_tail_ratio_sort = Nose_tail_ratio(sort_index,:);
-
-subplot(2,3,3)
-imagesc(Nose_tail_ratio_sort,[0,0.3])
-% colormap yellowblue
-colormap summer
-colorbar
-h=gca;
-h.XTick = 0:50*60*15:25*60*15*test_length; %every 50min
-h.XTickLabel = 0:50:25*test_length;
-title('nose-tail time spent near object')
-xlabel('min')
-ylabel('animal')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',20)
-set(gcf,'color','w')
-
-subplot(2,3,6)
-plot(Nose_tail_ratio_sort')
-hold on
-plot(mean(Nose_tail_ratio_sort),'k-','Linewidth',2) 
-h=gca;
-h.XTick = 0:50*60*15:25*60*15*test_length; %every 50min
-h.XTickLabel = 0:50:25*test_length;
-axis([0 25*60*15*test_length -0.1 0.3])
-xlabel('min')
-ylabel('fraction')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',20)
-set(gcf,'color','w')
-
-Total_bout_ratio = sum(Tail_closer');
-[Total_bout_ratio_sort, sort_index] = sort(Total_bout_ratio);
-Tail_closer_sort = Tail_closer(sort_index,:);
-Tail_closer_sort = smoothdata(Tail_closer_sort,2,'lowess',4000);
-
-mean_tail_closer = mean(Tail_closer(:,51*1000:end),2);
-mean_tail_closer_baseline = mean(Tail_closer(:,1:50*1000),2);
-figure
-subplot(1,2,1)
-histogram(mean_tail_closer,0:0.05:0.2)
-xlabel('fraction')
-ylabel('animal number')
-title('time with tail closer')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',20)
-set(gcf,'color','w')
-
-subplot(1,2,2)
-histogram(mean_tail_closer - mean_tail_closer_baseline,-0.1:0.05:0.1)
-xlabel('fraction')
-ylabel('animal number')
-title('time with tail closer')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',20)
-set(gcf,'color','w')
-
-
-figure
-subplot(2,1,1)
-imagesc(Tail_closer_sort,[0,0.3])
-% colormap yellowblue
-colormap summer
-colorbar
-h=gca;
-h.XTick = 0:50*60*15:25*60*15*test_length; %every 50min
-h.XTickLabel = 0:50:25*test_length;
-title('time tail closer near object')
-xlabel('min')
-ylabel('animal')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',20)
-set(gcf,'color','w')
-
-subplot(2,1,2)
-plot(Tail_closer_sort')
-hold on
-plot(mean(Tail_closer_sort),'k-','Linewidth',2) 
-h=gca;
-h.XTick = 0:50*60*15:25*60*15*test_length; %every 50min
-h.XTickLabel = 0:50:25*test_length;
-axis([0 25*60*15*test_length 0 0.3])
-xlabel('min')
-ylabel('fraction')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',20)
-set(gcf,'color','w')
-
-%% body length
-
-figure
-subplot(3,1,1)
-plot(Body_length_bin')
-hold on
-% plot(mean(Body_length_bin),'k-','Linewidth',2) 
-plot(mean(Body_length_bin,'omitnan'),'k-','Linewidth',2) 
-h=gca;
-h.XTick = 0:5:5*test_length;
-h.XTickLabel = 0:25:25*test_length;
-axis([0 5*test_length 6 9])
-title('max body length in bouts')
-xlabel('min')
-ylabel('cm')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',15)
-set(gcf,'color','w')
-
-% mean_Body_length_bin = mean(Body_length_bin,2,'omitnan'); %'zsocre' cannot handle NaN
-% std_Body_length_bin = std(Body_length_bin,[],2,'omitnan');
-% Body_length_bin_zscore = (Body_length_bin - mean_Body_length_bin)./std_Body_length_bin; %zscore
-% Body_length_bin_zscore = Body_length_bin_zscore - mean(Body_length_bin_zscore(:,1:10),2,'omitnan'); %subtract first 2 days
-% 
-% subplot(3,1,2)
-% plot(Body_length_bin_zscore')
-% hold on
-% plot(mean(Body_length_bin_zscore,'omitnan'),'k-','Linewidth',2) 
-% h=gca;
-% h.XTick = 0:5:5*test_length;
-% h.XTickLabel = 0:25:25*test_length;
-% axis([0 5*test_length -2 4])
-% title('max body length in bouts')
-% xlabel('min')
-% ylabel('zscore')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',15)
-% set(gcf,'color','w')
-
-mean_Body_length_baseline = mean(Body_length_bin(:,1:10),2,'omitnan'); 
-Body_length_bin_normalized = Body_length_bin./mean_Body_length_baseline;
-
-subplot(3,1,2)
-plot(Body_length_bin_normalized')
-hold on
-plot(mean(Body_length_bin_normalized,'omitnan'),'k-','Linewidth',2) 
-h=gca;
-h.XTick = 0:5:5*test_length;
-h.XTickLabel = 0:25:25*test_length;
-axis([0 5*test_length 0.9 1.2])
-title('max body length in bouts')
-xlabel('min')
-ylabel('normalized length')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',15)
-set(gcf,'color','w')
-
-
-Total_body_length = sum(Body_length_bin_normalized','omitnan');
-[Total_body_length_sort, sort_index] = sort(Total_body_length,'descend');
-Body_length_bin_sort = Body_length_bin_normalized(sort_index,:);
-
-% Total_body_length = sum(Body_length_bin_zscore','omitnan');
-% [Total_body_length_sort, sort_index] = sort(Total_body_length,'descend');
-% Body_length_bin_sort = Body_length_bin_zscore(sort_index,:);
-
-subplot(3,1,3)
-imagesc(Body_length_bin_sort,[0.9 1.2]) %5 min bin
-% colormap yellowblue
-colormap summer
-colorbar
-h=gca;
-h.XTick = 0:5:5*test_length;
-h.XTickLabel = 0:25:25*test_length;
-title('body length')
-xlabel('min')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',20)
-set(gcf,'color','w')
-
-% figure
-% subplot(3,1,1)
-% plot(Body_length_min')
-% hold on
-% plot(mean(Body_length_min,'omitnan'),'k-','Linewidth',2) 
-% h=gca;
-% h.XTick = 0:25:25*test_length;
-% h.XTickLabel = 0:25:25*test_length;
-% axis([0 25*test_length 6 9])
-% title('max body length in bouts')
-% xlabel('min')
-% ylabel('cm')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',15)
-% set(gcf,'color','w')
-% 
-% mean_Body_length_min = mean(Body_length_min,2,'omitnan'); %'zsocre' cannot handle NaN
-% std_Body_length_min = std(Body_length_min,[],2,'omitnan');
-% Body_length_min_zscore = (Body_length_min - mean_Body_length_min)./std_Body_length_min; %zscore
-% Body_length_min_zscore = Body_length_min_zscore - mean(Body_length_min_zscore(:,1:50),2,'omitnan'); %subtract first 2 days
-% 
-% subplot(3,1,2)
-% plot(Body_length_min_zscore')
-% hold on
-% plot(mean(Body_length_min_zscore,'omitnan'),'k-','Linewidth',2) 
-% h=gca;
-% h.XTick = 0:25:25*test_length;
-% h.XTickLabel = 0:25:25*test_length;
-% axis([0 25*test_length -2 4])
-% title('max body length in bouts')
-% xlabel('min')
-% ylabel('zscore')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',15)
-% set(gcf,'color','w')
-% 
-% Total_body_length = sum(Body_length_min','omitnan');
-% [Total_body_length_sort, sort_index] = sort(Total_body_length,'descend');
-% Body_length_min_sort = Body_length_min_zscore(sort_index,:);
-% 
-% subplot(3,1,3)
-% imagesc(Body_length_min_sort,[-2,4]) %5 min bin
-% % colormap yellowblue
-% colormap summer
-% colorbar
-% h.XTick = 0:25:25*test_length;
-% h.XTickLabel = 0:25:25*test_length;
-% title('body length')
-% xlabel('min')
-% ylabel('zscore')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',20)
-% set(gcf,'color','w')
-
-mean_Body_length_baseline = mean(Body_length_bin(:,1:10),2,'omitnan'); 
-Bout_body_length_normalized = Bout_body_length_novelty./mean_Body_length_baseline;
-m_plot = mean(Bout_body_length_normalized,'omitnan');
-s_plot = std(Bout_body_length_normalized,'omitnan')/sqrt(size(Bout_body_length_normalized,1));
-plotWin = 1:size(Bout_body_length_novelty,2);
-figure
-% plot(Bout_body_length_normalized')
-% hold on
-% plot(mean(Bout_body_length_normalized,'omitnan'),'k-','Linewidth',2)
-errorbar_patch(plotWin,m_plot,s_plot,'k');
-h=gca;
-h.XTick = 0:10:100;
-axis([0 100 0.9 1.2])
-title('body length')
-xlabel('bout')
-ylabel('normalized length')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',20)
-set(gcf,'color','w')
-
-% mean_body_length_closest_baseline = mean(Body_length_closest(:,1:20),2,'omitnan');
-% Body_length_closest_normalized = Body_length_closest./mean_body_length_closest_baseline;
-% figure
-% plot(Body_length_closest_normalized')
-% hold on
-% plot(mean(Body_length_closest_normalized,'omitnan'),'k-','LineWidth',2)
-% h=gca;
-% h.XTick = 0:10:100;
-% axis([0 100 0.9 1.3])
-% title('body length')
-% xlabel('bout')
-% ylabel('normalized length')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',20)
-% set(gcf,'color','w')
-
+%% save
 % cd('/Users/mitsukouchida/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior/stimulus_saline');
 % cd(groupfolder);
 % save('bout_multi','Bout_ratio','Bout_duration_max','Ratio_nose_tail','Bout_tail_behind_frequency',...

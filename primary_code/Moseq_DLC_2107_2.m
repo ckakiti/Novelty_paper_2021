@@ -1,17 +1,19 @@
-function Moseq_DLC_2107_2
+% function Moseq_DLC_2107_2
+clear
+close all
+clc
 
 %This codes analyze Moseq data of behavior syllables using XY label with DLC
 % In Korleki's dropbox Behavior folder
-% MiceIndex_wLabels.mat (organized bby Korleki)
+% MiceIndex_wLabels.mat (organized by Korleki)
 % Mice has 18 mice data
 % In 'Mice', ExpDay has moseq_align data, same length as DLC
 
-cd('/Users/mitsuko/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior');
-% cd('/Users/mitsukouchida/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior');
+cd('/Users/cakiti/Dropbox (Uchida Lab)/Korleki Akiti/Behavior/novelty_paper_2021')
 [animal_info,text,raw] = xlsread('akiti_miceID_210318.xlsx');
 animal = text(2:end,3);
 condition = text(2:end,9);
-syllable_n = 14; % choose syllable
+syllable_n = 79; % choose syllable
 
 % test = {'hab1','hab2','novel1','novel2','novel3','novel4'};
 test = {'novel1'};
@@ -22,23 +24,14 @@ Syl_multi = {}; Syl_each_multi = {}; Syl9_freq_retreat_multi = {}; Syl9_freq_ses
 Syl9_freq_tail_behind_multi = {}; Syl9_freq_tail_exposure_multi = {};
 Bout_tail_each_multi = {};
 for group_n = [1,2,3,4] %groups to compare
-% for group_n = [1,2] %groups to compare
-% for group_n = 1 %groups to compare
-groupfolder = strcat('/Users/mitsuko/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior/',group{group_n});
-% groupfolder = strcat('/Users/mitsukouchida/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior/',group{group_n});
+groupfolder = strcat('/Users/cakiti/Dropbox (Uchida Lab)/Korleki Akiti/Behavior/novelty_paper_2021/',group{group_n});
 cd(groupfolder);
 
-scrsz = get(groot,'ScreenSize');    
-figure('Position',[1 scrsz(4)/1.5 scrsz(3)/1.5 scrsz(4)/1.5])
 Syl_all = []; Syl_each = {}; Syl9_freq_retreat = []; Syl9_freq_session = []; 
 Syl9_freq_tail_behind = [];  Syl9_freq_tail_exposure = [];
 Bout_tail_each = {};
 animal_index = 0;
 for animal_n = find(strcmp(condition,group{group_n}))'
-% ind = find(strcmp(condition,group{group_n}))';
-% for animal_n = ind(1)
-%     animal_n
-%     animal{animal_n}
     animal_index = animal_index + 1;
     animalfolder = strcat(groupfolder,'/',animal{animal_n});
     cd(animalfolder);
@@ -46,11 +39,10 @@ for animal_n = find(strcmp(condition,group{group_n}))'
 for test_n = 1
         cd(animalfolder);
       cd(test{test_n});
-%       test{test_n}
 
 load ('DLC_label','Labels','session_start')
 
-%% approach-retreat bouts
+% approach-retreat bouts
 
 Labels = Labels(1:25*60*15,:); %use 30 min
 object_threshold = 7; % cm
@@ -72,13 +64,6 @@ for nosei = 1:length(bout_start)
 end
 
 nose_closest_bout = nose_closest_bout + session_start - 1; %time in video clock
-% t_nose_closest_bout = video_t(nose_closest_bout); %time in event clock
-% for i = 1:length(t_nose_closest_bout)
-%     if t_nose_closest_bout(i)<photometry_t(length(GCaMP_zscore))
-%         nose_closest_bout_TS1 = find(photometry_t < t_nose_closest_bout(i),1,'last');
-%         nose_closest_bout_TS = [nose_closest_bout_TS, nose_closest_bout_TS1]; %time in photometry clock
-%     end
-% end
 
 nose_within = (0.15*Labels(:,32)<object_threshold); %nose is close
 % nose_ratio = smoothdata(nose_within,'lowess',4000);
@@ -98,21 +83,6 @@ for nosei = 1:length(nose_start)
 end
 
 nose_closest = nose_closest + session_start - 1; %time in video clock
-% t_nose_closest = video_t(nose_closest); %time in event clock
-% for i = 1:length(t_nose_closest)
-%     if t_nose_closest(i)<photometry_t(length(GCaMP_zscore))
-%         nose_closest_TS1 = find(photometry_t < t_nose_closest(i),1,'last');
-%         nose_closest_TS = [nose_closest_TS, nose_closest_TS1]; %time in photometry clock
-%     end
-% end
-
-% t_nose_start = video_t(nose_start); %time in event clock
-% for i = 1:length(t_nose_start)
-%     if t_nose_start(i)<photometry_t(length(GCaMP_zscore))
-%         nose_start_TS1 = find(photometry_t < t_nose_start(i),1,'last');
-%         nose_start_TS = [nose_start_TS, nose_start_TS1]; %time in photometry clock
-%     end
-% end
 
 for nosei = 1:length(nose_closest)
 bout_nose_tail = 0.15*Labels(nose_start(nosei):nose_end(nosei),32) - 0.15*Labels(nose_start(nosei):nose_end(nosei),34);
@@ -128,10 +98,8 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-cd('/Users/mitsuko/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior/Moseq');
-% cd('/Users/mitsukouchida/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior/Moseq');
+cd('/Users/cakiti/Dropbox (Uchida Lab)/Korleki Akiti/Behavior/novelty_paper_2021/Moseq');
 load ('MiceIndex_wLabels_combine3L_update','Mice')
-% load ('MiceIndex_wLabels','Mice')
 for i = 1:length(Mice)
     animal_Moseq{i} = Mice(i).name;
 end
@@ -143,12 +111,9 @@ syllable = Mice(animal_n_Moseq).ExpDay(test_n).moseq_align;
 % make matrix of syllable
 
 % trigger = {nose_closest'};
-trigger = {nose_closest_tail_behind'};
-% trigger = {nose_closest_tail_exposure'};
+% trigger = {nose_closest_tail_behind'};
+trigger = {nose_closest_tail_exposure'};
 
-% scrsz = get(groot,'ScreenSize');    
-% figure('Position',[1 scrsz(4)/1.5 scrsz(3)/1.5 scrsz(4)/1.5])
-subplot(2,9,animal_index)
 plotdata = syllable;
 plotWin = -45:45; %3s*15frames
 Syl = [];
@@ -167,42 +132,6 @@ for i = 1:length(trigger)
     Trial_number = [Trial_number size(rawTrace,1)];
     end
 end
-
-if size(Syl,1)>50
-imagesc(Syl(1:50,:),[1 100]);
-else
-    imagesc(Syl,[1 100]);
-end
-colormap hsv
-xlabel('time - retreat (s)');
-ylabel('trials')
-h=gca;
-h.XTick = 1:15:91;
-h.XTickLabel = -3:3;
-h.YTickLabel = {};
-title(animal{animal_n})
-hold on;
-
-% colorbar
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',10)
-set(gcf,'color','w')
-
-% subplot(1,2,2)
-% response = Syl(:,31:60); %-1to1s
-% response = reshape(response,1,[]);
-% h = histogram(response,0.5:1:100.5);
-% [B,I] = sort(h.Values,'descend');
-% ylabel('frequency at retreat')
-% xlabel('syllable')
-% title(I(1:3)) %3 most frequent syllable
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',20)
-% set(gcf,'color','w')
 
 Syl_all = [Syl_all;Syl];
 Syl_each{animal_index} = Syl;
@@ -236,6 +165,7 @@ Syl9_freq_retreat_multi{group_n} = Syl9_freq_retreat;
 end
 
 %% enriched in stimulus novelty
+% fig 5c, tail behind 
 figure
 for i = 1:4
 group{i}
@@ -320,7 +250,7 @@ end
 subplot(2,5,5)
 colorbar
 
-%% enriched in contextual novelty
+%% enriched in contextual novelty (not used)
 
 figure
 for i = 1:4

@@ -1,6 +1,9 @@
-function novelty_tail_behind_summary
+%function novelty_tail_behind_summary
+clear
+close all
+clc
 
-cd('/Users/mitsuko/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior');
+cd('/Users/cakiti/Dropbox (Uchida Lab)/Korleki Akiti/Behavior/novelty_paper_2021')
 % cd('/Users/mitsukouchida/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior');
 [animal_info,text,raw] = xlsread('akiti_miceID_210318.xlsx');
 animal = text(2:end,3);
@@ -9,8 +12,7 @@ animal = text(2:end,3);
 condition = text(2:end,9);
 group = {'stimulus','contextual','saline','6OHDA','FP_all'};
 group_n = 5;
-groupfolder = strcat('/Users/mitsuko/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior/',group{group_n});
-% groupfolder = strcat('/Users/mitsukouchida/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior/',group{group_n});
+groupfolder = strcat('/Users/cakiti/Dropbox (Uchida Lab)/Korleki Akiti/Behavior/novelty_paper_2021/',group{group_n});
 cd(groupfolder);
 green_range = [-2 2]; % for raster plot
 session_length = 40; %50 for stimulus, 40 for contextual
@@ -20,13 +22,9 @@ Bout_tail = []; First_tail_exposure = []; First_tail_exposure_time = [];
 Response = []; Response_history = []; Response_all = {}; Response_history_all = {}; 
 Bout_tail_all = {}; Mean_DeltaF_phase1 = []; Mean_DeltaF_phase2 = []; Mean_DeltaF_phase1_only = [];
 animal_index = 0; Mean_DeltaF_phase2_tail_behind = []; Mean_DeltaF_phase2_tail_exposure = [];
-% for animal_n = 1:length(animal)
-% for animal_n = 61 
-% for animal_n = find(strcmp(condition,group{group_n}))'
-% for animal_n = find(strcmp(condition,'contextual_FP'))'
+
 for animal_n = find(strcmp(condition,'stimulus_FP'))'
     animal_index = animal_index + 1;
-    animal_n
     animal{animal_n}
     animalfolder = strcat(groupfolder,'/',animal{animal_n});
     cd(animalfolder);
@@ -78,8 +76,9 @@ for animal_n = find(strcmp(condition,'stimulus_FP'))'
     Response_history_all{animal_index} = response_history;
     
 end
-mean_response = mean(Response,2)'
+mean_response = mean(Response,2)';
 
+%% fig 6e
 figure
 subplot(1,4,1)
 m_plot = mean(Mean_DeltaF);
@@ -102,7 +101,7 @@ set(gcf,'color','w')
 subplot(1,4,2)
 mean_Mean_DeltaF = mean(Mean_DeltaF(:,3001:4000),2);
 [B,I] = sort(mean_Mean_DeltaF,'descend');
-sort_index_DA = I
+sort_index_DA = I;
 Mean_DeltaF_sort = Mean_DeltaF(I,:);
 %1) bin the data
 trialNum = size(Mean_DeltaF,1); binSize = 100;
@@ -110,7 +109,7 @@ length_x = plotWin(end)-plotWin(1);
 binedF = squeeze(mean(reshape(Mean_DeltaF_sort(:,1:length_x),trialNum, binSize,[]),2));
 imagesc(binedF,green_range);
 % imagesc(binedF);
-colormap yellowblue
+% colormap yellowblue
 colorbar
 xlabel('time - retreat (s)');
 ylabel('animals')
@@ -134,7 +133,7 @@ Mean_DeltaF_all = mean(DeltaF_all,3);
 binedF = squeeze(mean(reshape(Mean_DeltaF_all(:,1:length_x),trialNum, binSize,[]),2));
 imagesc(binedF,green_range);
 % imagesc(binedF);
-colormap yellowblue
+% colormap yellowblue
 colorbar
 xlabel('time - retreat (s)');
 ylabel('trials')
@@ -160,6 +159,7 @@ set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',20)
 set(gcf,'color','w')
 
+%%
 figure
 subplot(2,1,1)
 for i = 1:animal_index
@@ -649,7 +649,7 @@ set(gcf,'color','w')
 
 % test phase coding
 % mdl = fitglm(Trial(ind),Phase(ind),'Distribution','binomial','Link','logit') %Fit a logistic regression model, phase
-mdl = fitglm(DA_Retreat,Phase,'Distribution','binomial','Link','logit') %Fit a logistic regression model, phase
+mdl = fitglm(DA_Retreat,Phase,'Distribution','binomial','Link','logit'); %Fit a logistic regression model, phase
 % mdl = fitglm([Trial(ind),DA_Retreat(ind)],Phase(ind),'Distribution','binomial','Link','logit') %Fit a logistic regression model, phase
 % mdl = fitglm([Trial,DA_Retreat],Phase,'Distribution','binomial','Link','logit') %Fit a logistic regression model, phase
 
@@ -671,7 +671,7 @@ set(gcf,'color','w')
 % test next retreat type coding
 % ind = find(Trial>18);
 ind = find(Phase(1:(end-1))==0); % after first tail exposure
-mdl = fitglm(DA_Retreat(ind+1),Bout_tail2(ind),'Distribution','binomial','Link','logit') %Fit a logistic regression model, phase
+mdl = fitglm(DA_Retreat(ind+1),Bout_tail2(ind),'Distribution','binomial','Link','logit'); %Fit a logistic regression model, phase
 scores = mdl.Fitted.Probability;
 [X,Y,T,AUC_value] = perfcurve(Bout_tail2(ind),scores,1);
 
@@ -691,7 +691,7 @@ set(gcf,'color','w')
 % test next retreat type coding
 % ind = find(Trial>18);
 ind = find(Phase==0); % after first tail exposure
-mdl = fitglm(DA_Retreat2(ind),Bout_tail2(ind),'Distribution','binomial','Link','logit') %Fit a logistic regression model, phase
+mdl = fitglm(DA_Retreat2(ind),Bout_tail2(ind),'Distribution','binomial','Link','logit'); %Fit a logistic regression model, phase
 scores = mdl.Fitted.Probability;
 [X,Y,T,AUC_value] = perfcurve(Bout_tail2(ind),scores,1);
 
@@ -707,18 +707,7 @@ set(gca,'FontSize',10)
 set(gcf,'color','w')
 
 % test phase coding, trial number vs dopamine
-mdl_dopamine = fitlm(DA_Retreat,Phase) %Fit a linear regression model, phase
-mdl_trialnumber = fitlm(Trial,Phase) 
-mdl_both = fitlm([Trial,DA_Retreat],Phase)
-
-% ind = find(Phase(1:(end-1))==0); % after first tail exposure
-% mdl_trialnumber_after_tail_exposure = fitlm(Trial(ind),DA_Retreat(ind)) 
-% ind = find(Phase(1:(end-1))==1); % before first tail exposure
-% mdl_trialnumber_before_tail_exposure = fitlm(Trial(ind),DA_Retreat(ind)) 
-
-
-
-
-
-First_tail_exposure
+mdl_dopamine = fitlm(DA_Retreat,Phase); %Fit a linear regression model, phase
+mdl_trialnumber = fitlm(Trial,Phase); 
+mdl_both = fitlm([Trial,DA_Retreat],Phase);
 

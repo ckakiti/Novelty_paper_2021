@@ -334,6 +334,7 @@ m_plot = {mean(Bout_tail_behind_control_min(:,1:150),'omitnan');mean(Bout_tail_b
 s_plot = {std(Bout_tail_behind_control_min(:,1:150),'omitnan')/sqrt(size(Bout_tail_behind_control_min(:,1:150),1));...
     std(Bout_tail_behind_6OHDA_min(:,1:150),'omitnan')/sqrt(size(Bout_tail_behind_6OHDA_min,1))};
 
+% fig 4f
 figure
 subplot(2,3,1)
 for i = 1:2
@@ -461,6 +462,8 @@ m_plot = {mean(Bout_tail_behind_stim_min,'omitnan');mean(Bout_tail_behind_contex
 s_plot = {std(Bout_tail_behind_stim_min,'omitnan')/sqrt(size(Bout_tail_behind_stim_min,1));...
     std(Bout_tail_behind_context_min,'omitnan')/sqrt(size(Bout_tail_behind_context_min,1))};
 
+
+% fig 3e
 figure
 subplot(2,3,1)
 for i = 1:2
@@ -583,38 +586,6 @@ set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',15)
 set(gcf,'color','w')
 
-figure
-subplot(1,2,1)
-boxplot([mean(Bout_tail_behind_stim_min(:,51:75),2)',mean(Bout_tail_behind_context_min(:,51:75),2)',...
-    mean(Bout_tail_behind_control_min(:,51:75),2)',mean(Bout_tail_behind_6OHDA_min(:,51:75),2)'],...
-    [zeros(1,9),ones(1,9),2*ones(1,17),3*ones(1,17)])
-h=gca;
-h.XTick = 1:4;
-h.XTickLabel = {'stim','context','control','6OHDA'};
-axis([0.5 4.5 0 6])
-ylabel('frequency')
-title('tail behind')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',15)
-set(gcf,'color','w')
-
-subplot(1,2,2)
-boxplot([mean(Bout_with_tail_stim_min(:,51:75),2)',mean(Bout_with_tail_context_min(:,51:75),2)',...
-    mean(Bout_with_tail_control_min(:,51:75),2)',mean(Bout_with_tail_6OHDA_min(:,51:75),2)'],...
-    [zeros(1,9),ones(1,9),2*ones(1,17),3*ones(1,17)])
-h=gca;
-h.XTick = 1:4;
-h.XTickLabel = {'stim','context','control','6OHDA'};
-axis([0.5 4.5 0 6])
-ylabel('frequency')
-title('tail exposure')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',15)
-set(gcf,'color','w')
 
 [h,p_tail_behind_day1_control_stim] = ttest2(mean(Bout_tail_behind_control_min(:,51:75),2),...
     mean(Bout_tail_behind_stim_min(:,51:75),2))
