@@ -27,7 +27,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - description
 - Input:
 - Output:
-  - fig 5c (colorplot, tail behind)
+  - fig 5c (colorplots)
 
 ### photometry_novelty_Korleki_2105.m
 - required supplementary code:
@@ -71,7 +71,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 
 ### Figure 5
 - Fig 5b:
-- Fig 5c (colorplot, tail behind): Moseq_DLC_2107_2
+- Fig 5c (colorplots): Moseq_DLC_2107_2
 - Fig 5e:
 - Fig 5f:
 
