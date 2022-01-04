@@ -35,7 +35,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Output:
   - fig 5c (colorplots)
 
-### photometry_novelty_summary.m
+### [photometry_novelty_summary.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/photometry_novelty_summary.m)
 - description
 - Input:
 - Output:
