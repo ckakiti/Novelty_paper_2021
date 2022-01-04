@@ -2,12 +2,7 @@
 
 Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harvard (dot) edu. Data structure is explained [here](https://github.com/ckakiti/Novelty_paper_2021/blob/main/DataStructure.md). The following gives an overview of the code that produced each figure. Specifics for running each piece of code can be found in the comments within the code itself.
 
-## Figure 1
-
-### [novelty_comparison_multi_days](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/novelty_comparison_multi_days.m)
-- description
-- Input:
-- Output: Fig 1d
+## Divided by code
 
 ### [analy_novelty2103.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/analy_novelty2103.m)
 - creates bout_multi.mat (needed for plotting multi-day behavior imagesc)
@@ -17,7 +12,10 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
   - imagesc behavior plots (Fig 1e-g, Fig 2d-e, Fig 3c/d, Fig 4d/e)
   - violin plots (Fig 2d-e)
 
-## Figure 2
+### [novelty_comparison_multi_days.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/novelty_comparison_multi_days.m)
+- description
+- Input:
+- Output: Fig 1d, Fig 3b, Fig 3c/d (frequency comparison), Fig 3e, Fig 3f, Fig 4c, Fig 4d/e (frequency comparison)
 
 ### [analy_novelty_multi_sessions_2012](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/analy_novelty_multi_sessions_2012.m)
 - creates distToObj, nose-tail, and bout plots for multiple mice and sessions
@@ -25,30 +23,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Output: 
   - bout_early_late.tif, distToObj_nose-tail.tif, distToObj.tif, nose-Tail.tif (Fig 2a)
 
-## Figure 3
-
-### [novelty_comparison_multi_days](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/novelty_comparison_multi_days.m)
-- description
-- Input: 
-- Output: Fig 3b, Fig 3c/d (frequency comparison), Fig 3e, Fig 3f, Fig 4c, Fig 4d/e (frequency comparison)
-
-## Figure 4
-
-### filename
-- description
-- Input: 
-- Output: 
-
-## Figure 5
-
-### filename
-- description
-- Input: 
-- Output: 
-
-## Figure 6
-
-### photometry_novelty_Korleki_2105.m (Mitsuko code)
+### photometry_novelty_Korleki_2105.m
 - required supplementary code:
   - analyze_noise_2105_novelty
   - photometry_sync_every10_2105
@@ -65,23 +40,37 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
   - mouse_date_FP.mat (containing GCaMP, tdTom, TTL, TTL_on, pos_within_TTL)
   - mouse_date_rgb_ts (containing rgb indices and corresponding FP indices)
 
-## Figures 7
+## Divided by figure
 
-### filename
-- description
-- Input: 
-- Output: 
+### Figure 1
+- Fig 1d: novelty_comparison_multi_days
+- Fig 1e-g: analy_novelty2103
 
-## Figure 8
+### Figure 2
+- Fig 2a: analy_novelty_multi_sessions_2012
+- Fig 2b-c: 
+- Fig 2d-e: analy_novelty2103
 
-### filename
-- description
-- Input: 
-- Output: 
+### Figure 3
+- Fig 3b: novelty_comparison_multi_days
+- Fig 3c/d (colorplots): analy_novelty2103
+- Fig 3c/d (frequency comparison): novelty_comparison_multi_days
+- Fig 3e/f: novelty_comparison_multi_days
 
-## Supplementary Figure 2
+### Figure 4
+- Fig 4
 
-### [novelty_comparison_multi_days](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/novelty_comparison_multi_days.m)
-- description
-- Input: 
-- Output: Supp Fig 2 (cumulative duration)
+### Figure 5
+- Fig 5
+
+### Figure 6
+- Fig 6
+
+### Figures 7
+- Fig 7
+
+### Figure 8
+- Fig 8
+
+### Supplementary Figure 2
+- novelty_comparison_multi_days
