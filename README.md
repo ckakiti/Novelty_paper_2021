@@ -14,7 +14,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Input: akiti_miceID_210318.xlsx, DLC_label.mat
 - Output: 
   - bout_multi.mat
-  - imagesc behavior plots (Fig 1e-g, Fig 2d-e)
+  - imagesc behavior plots (Fig 1e-g, Fig 2d-e, Fig 3c/d)
   - violin plots (Fig 2d-e)
 
 ## Figure 2
@@ -30,7 +30,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 ### [novelty_comparison_multi_days](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/novelty_comparison_multi_days.m)
 - description
 - Input: 
-- Output: Fig 3b, Fig 3c/d (frequency comparison), Fig 3e, Fig 3f, Fig 4d/e (frequency comparison)
+- Output: Fig 3b, Fig 3c/d (frequency comparison), Fig 3e, Fig 3f, Fig 4c, Fig 4d/e (frequency comparison)
 
 ## Figure 4
 
