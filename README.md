@@ -35,14 +35,6 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Output:
   - fig 5c (colorplots)
 
-### photometry_novelty_Korleki_2105.m
-- required supplementary code:
-  - analyze_noise_2105_novelty
-  - photometry_sync_every10_2105
-  - videosync_every10_2105
-- Input: akiti_miceID_210318.xlsx, DLC_label.mat
-- Output: ANIMAL_FPaligned_SESSION.tif
-
 ## Divided by figure
 
 ### Figure 1
