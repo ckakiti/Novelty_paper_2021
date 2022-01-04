@@ -23,7 +23,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Output: 
   - bout_early_late.tif, distToObj_nose-tail.tif, distToObj.tif, nose-Tail.tif (Fig 2a)
 
-### Moseq_DLC_2107_2
+### [Moseq_DLC_2107_2](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/Moseq_DLC_2107_2.m)
 - description
 - Input:
 - Output:
