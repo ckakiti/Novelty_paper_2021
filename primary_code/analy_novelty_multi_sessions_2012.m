@@ -98,7 +98,7 @@ load('DLC_label','Labels')
 % 15 frame per second
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% velocity and accelaration
+%% velocity and acceleration
 
 session_time = ((1:size(Labels,1))/15)/60; %min
 head_speed_smooth = movmean(15*0.15*Labels(:,26),4000);

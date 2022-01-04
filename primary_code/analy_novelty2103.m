@@ -65,7 +65,7 @@ Bout_body_length=[];Body_length_bin = [];Body_length_min = [];Bout_body_length_n
 Bout_start = []; Bout_type = [];
 
 % for group_n = [1,3] %when combine groups, change save folder at the end
-for group_n = [1,3]
+for group_n = 2
 groupfolder = strcat('/Users/cakiti/Dropbox (Uchida Lab)/Korleki Akiti/',...
     'Behavior/novelty_paper_2021/',group{group_n});
 cd(groupfolder);
@@ -571,7 +571,7 @@ set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',20)
 set(gcf,'color','w')
 
-%% Fig 1f
+%% Fig 1f, 3c/d colorplots
 % approch with tail behind
 Bout_tail_behind_min = Bout_tail_behind_frequency(:,1:15*60:end);
 Total_bout_tail_behind = sum(Bout_tail_behind_min');
@@ -821,7 +821,7 @@ set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',15)
 set(gcf,'color','w')
 
-%%
+
 figure
 subplot(1,2,1)
 violinplot([mean(Bout_with_tail_5min_normalized(:,11:12),2),...
@@ -985,7 +985,7 @@ set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',20)
 set(gcf,'color','w')
 
-%% nose or tail time spent near object
+%% nose or tail time spent near object (not used)
 figure
 
 Total_bout_ratio = sum(Nose_ratio');
