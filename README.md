@@ -35,6 +35,13 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Output:
   - fig 5c (colorplots)
 
+### photometry_novelty_summary.m
+- description
+- Input:
+- Output:
+  - fig 6c
+
+
 ## Divided by figure
 
 ### Figure 1
@@ -66,7 +73,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Fig 5f: Moseq_DLC_2107
 
 ### Figure 6
-- Fig 6c:
+- Fig 6c: photometry_novelty_summary
 - Fig 6d:
 - Fig 6e:
 - Fig 6f:
