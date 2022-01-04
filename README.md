@@ -83,7 +83,13 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Fig 5f: Moseq_DLC_2107
 
 ### Figure 6
-- Fig 6
+- Fig 6c:
+- Fig 6d:
+- Fig 6e:
+- Fig 6f:
+- Fig 6g:
+- Fig 6h
+- Fig 6i:
 
 ### Figures 7
 - Fig 7
