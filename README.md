@@ -64,7 +64,10 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Fig f: novelty_comparison_multi_days
 
 ### Figure 5
-- Fig 5
+- Fig 5b:
+- Fig 5c:
+- Fig 5e:
+- Fig 5f:
 
 ### Figure 6
 - Fig 6
