@@ -23,6 +23,12 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Output: 
   - bout_early_late.tif, distToObj_nose-tail.tif, distToObj.tif, nose-Tail.tif (Fig 2a)
 
+### Moseq_DLC_2107_2
+- description
+- Input:
+- Output:
+  - fig 5c (colorplot, tail behind)
+
 ### photometry_novelty_Korleki_2105.m
 - required supplementary code:
   - analyze_noise_2105_novelty
@@ -65,7 +71,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 
 ### Figure 5
 - Fig 5b:
-- Fig 5c:
+- Fig 5c (colorplot, tail behind): Moseq_DLC_2107_2
 - Fig 5e:
 - Fig 5f:
 
