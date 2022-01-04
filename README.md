@@ -27,7 +27,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - description
 - Input:
 - Output:
-  - fig 5c (frequency plots)
+  - fig 5b, fig 5c (frequency plots)
 
 ### [Moseq_DLC_2107_2.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/Moseq_DLC_2107_2.m)
 - description
@@ -76,7 +76,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Fig f: novelty_comparison_multi_days
 
 ### Figure 5
-- Fig 5b:
+- Fig 5b: Moseq_DLC_2107
 - Fig 5c (colorplots): Moseq_DLC_2107_2
 - Fig 5c (frequency plots): Moseq_DLC_2107
 - Fig 5e:
