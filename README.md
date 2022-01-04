@@ -23,6 +23,12 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Output: 
   - bout_early_late.tif, distToObj_nose-tail.tif, distToObj.tif, nose-Tail.tif (Fig 2a)
 
+### [Moseq_DLC_2107.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/Moseq_DLC_2107.m)
+- description
+- Input:
+- Output:
+  - fig 5c (frequency plots)
+
 ### [Moseq_DLC_2107_2.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/Moseq_DLC_2107_2.m)
 - description
 - Input:
@@ -72,6 +78,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 ### Figure 5
 - Fig 5b:
 - Fig 5c (colorplots): Moseq_DLC_2107_2
+- Fig 5c (frequency plots): Moseq_DLC_2107
 - Fig 5e:
 - Fig 5f:
 
