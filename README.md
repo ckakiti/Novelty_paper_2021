@@ -45,7 +45,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - description
 - Input:
 - Output:
-  - fig 6d (colorplot)
+  - fig 6d-i
 
 ## Divided by figure
 
@@ -79,13 +79,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 
 ### Figure 6
 - Fig 6c: photometry_novelty_summary
-- Fig 6d (colorplot): novelty_tail_behind_summary
-- Fig 6d (scatterplot):
-- Fig 6e: 
-- Fig 6f:
-- Fig 6g:
-- Fig 6h
-- Fig 6i:
+- Fig 6d-i: novelty_tail_behind_summary
 
 ### Figures 7
 - Fig 7
