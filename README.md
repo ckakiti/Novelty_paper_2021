@@ -41,7 +41,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Output:
   - fig 6c
 
-### novelty_tail_behind_summary
+### [novelty_tail_behind_summary.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/novelty_tail_behind_summary.m)
 - description
 - Input:
 - Output:
