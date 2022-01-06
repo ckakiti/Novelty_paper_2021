@@ -81,8 +81,8 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Fig 6c: photometry_novelty_summary
 - Fig 6d-i: novelty_tail_behind_summary
 
-### Figures 7
-- Fig 7
+### Figure 7
+- Fig 7b:
 
 ### Figure 8
 - Fig 8
