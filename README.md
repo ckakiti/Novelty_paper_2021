@@ -91,7 +91,9 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Fig 7b: lambda_novelty_2112
 
 ### Figure 8
-- Fig 8
+- Fig 8b:
+- Fig 8c:
+- Fig 8d:
 
 ### Supplementary Figure 2
 - novelty_comparison_multi_days
