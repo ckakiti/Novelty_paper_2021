@@ -1,8 +1,4 @@
 %function lambda_novelty_2112
-% TAKES A WHILE TO RUN THIS SECTION
-clear
-close all
-clc
 
 % similar to 2111, but initial threat prediction decays, not sustains
 % shaping bonus is fixed, no learning
@@ -69,7 +65,7 @@ for n = 1:n_trials
     V = [V;v];
 end
 
-%% fig 7b
+%%
 figure
 subplot(1,5,1)
 plot(T,r,'k-')
@@ -635,7 +631,7 @@ set(gca,'FontSize',15)
 set(gcf,'color','w')
 
 
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % behavior
 
 %approach drive

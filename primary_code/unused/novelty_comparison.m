@@ -1,4 +1,4 @@
-function novelty_comparison
+% function novelty_comparison
 
 %Use data saved with "analy_novelty2011"
 
@@ -19,7 +19,7 @@ Body_length_bin = {[],[],[],[]};
 
 % for group_n = [3,4] %groups to compare
 for group_n = [1,2] %groups to compare
-groupfolder = strcat('/Users/mitsukouchida/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior/',group{group_n});
+groupfolder = strcat('/Users/cakiti/Dropbox (Uchida Lab)/Korleki Akiti/Behavior/novelty_paper_2021/',group{group_n});
 cd(groupfolder);
 
 load('bout','Bout_ratio_sort','Bout_duration_max_sort','Ratio_nose_tail_sort','Bout_tail_behind_frequency',...
@@ -36,7 +36,7 @@ Tail_ratio_multi{group_n} = Tail_ratio;
 Tail_closer_multi{group_n} = Tail_closer;
 Body_length_bin{group_n} = Body_length_bin;
 
-%% comparison
+% comparison
 
 plotColors = {'b','c','k','r'};
 % figure(1)

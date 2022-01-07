@@ -1,7 +1,10 @@
-function novelty_model_2107
+%function novelty_model_2107
+clear
+close all
+clc
 
 t = 1:500;
-%% avoidance and approach conflict
+% avoidance and approach conflict
 %avoidance mouse
 
 V0 = 100;

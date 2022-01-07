@@ -1,5 +1,7 @@
-function analy_novelty2011
-
+% function analy_novelty2011
+clear
+close all
+clc
 % Labels(:,2) Nose x (pixel)
 % Labels(:,3) Nose y (pixel)
 % Labels(:,5) Leftear x (pixel)
@@ -36,7 +38,7 @@ function analy_novelty2011
 % 6.3/42=0.15 cm/pixel
 % 15 frame per second
 
-cd('/Users/mitsukouchida/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior/DLC_newplots/raw_data');
+cd('/Users/cakiti/Dropbox (Uchida Lab)/Korleki Akiti/Behavior/novelty_paper_2021')
 [animal_info,text,raw] = xlsread('akiti_miceID_210318.xlsx');
 animal = text(2:end,3);
 condition = text(2:end,9);
@@ -46,12 +48,12 @@ condition = text(2:end,9);
 %     'Earth_saline','Mercury_saline','Saturn_saline'};
 % % animal = {'Au_stim','Ginga_stim','Negativa_stim','Esquiva_cont','MeiaLua_cont','Queixada_cont'};
 test = {'hab1','hab2','novel1','novel2','novel3','novel4'};
-session_length = 27; %min
+session_length = 25; %min
 % group_n = 2;
 % groupfolder = strcat('/Users/mitsukouchida/Desktop/Korleki/',group{group_n});
 % cd(groupfolder);
 
-group = {'stimulus','contextual','saline','6OHDA'};
+group = {'stimulus','contextual','saline','6OHDA','FP_all'};
 % animal = {'Applachian'};
 Bout_ratio = []; Ratio_nose_tail = [];mean_nose_tail = [];std_nose_tail = [];Bout_tail_behind_frequency = [];
 Bout_duration_max =[];Distance_nose=[];Tail_ratio = [];Nose_ratio = [];Frame_within=[];Bout_with_tail_frequency = [];
@@ -59,7 +61,8 @@ Tail_closer = []; Bout_body_length =[];
 
 for group_n = [1,3] %when combine groups, change save folder at the end
 % for group_n = 3
-groupfolder = strcat('/Users/mitsukouchida/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior/DLC_newplots/raw_data/',group{group_n});
+groupfolder = strcat('/Users/cakiti/Dropbox (Uchida Lab)/Korleki Akiti/',...
+    'Behavior/novelty_paper_2021/',group{group_n});
 cd(groupfolder);
 
 
@@ -84,7 +87,7 @@ for test_n = 3
 load('DLC_label','Labels')
 
 
-%% approach-retreat bouts
+% approach-retreat bouts
 
 object_threshold = 7; % cm
 session_time = ((1:size(Labels,1))/15)/60; %min
@@ -216,7 +219,7 @@ std_nose_tail = [std_nose_tail,std(ratio_nose_tail_bout)];
 Distance_nose = [Distance_nose;0.15*Labels(1:session_length*60*15,32)]; %cm
 Tail_closer = [Tail_closer;tail_closer(1:session_length*60*15)']; %fraction of time tail is closer and near object
 
-%% body stretch
+% body stretch
 
 bout_body_length_all = [];
 ind = find(0.15*Labels(:,35)>9); %remove >9cm
@@ -707,7 +710,7 @@ set(gcf,'color','w')
 % set(gca,'TickLength',2*(get(gca,'TickLength')))
 % set(gca,'FontSize',20)
 % set(gcf,'color','w')
-
+%%
 cd('/Users/mitsukouchida/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior/DLC_newplots/raw_data/stimulus_saline');
 % cd(groupfolder);
 save('bout','Bout_ratio_sort','Bout_duration_max_sort','Ratio_nose_tail_sort','Bout_tail_behind_frequency',...

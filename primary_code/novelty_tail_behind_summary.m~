@@ -646,7 +646,7 @@ set(gcf,'color','w')
 % [rho,pval_dopamine_decay_tail_exposure_Spearman] = corr(Length_tail_exposure',Beta2(:,2),'Type','Pearson')
 % [rho,pval_dopamine_decay_time_near_object_Spearman] = corr(Length_frame_within',Beta2(:,2),'Type','Pearson')
 
-%% ROC analysis (fig 6i)
+%% ROC analysis (Fi
 
 % test phase coding
 % mdl = fitglm(Trial(ind),Phase(ind),'Distribution','binomial','Link','logit') %Fit a logistic regression model, phase
