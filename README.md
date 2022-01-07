@@ -47,6 +47,12 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Output:
   - fig 6d-i
 
+### lambda_novelty_2112.m
+- description
+- Input:
+- Output:
+  - fig 7b
+
 ## Divided by figure
 
 ### Figure 1
@@ -82,7 +88,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Fig 6d-i: novelty_tail_behind_summary
 
 ### Figure 7
-- Fig 7b:
+- Fig 7b: lambda_novelty_2112
 
 ### Figure 8
 - Fig 8
