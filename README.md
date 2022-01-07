@@ -47,7 +47,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Output:
   - fig 6d-i
 
-### lambda_novelty_2112.m
+### [lambda_novelty_2112.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/lambda_novelty_2112.m)
 - description
 - Input:
 - Output:
