@@ -41,11 +41,17 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Output:
   - fig 6c
 
-### novelty_tail_behind_summary
+### [novelty_tail_behind_summary.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/novelty_tail_behind_summary.m)
 - description
 - Input:
 - Output:
-  - fig 6e
+  - fig 6d-i
+
+### lambda_novelty_2112.m
+- description
+- Input:
+- Output:
+  - fig 7b
 
 ## Divided by figure
 
@@ -79,15 +85,10 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 
 ### Figure 6
 - Fig 6c: photometry_novelty_summary
-- Fig 6d:
-- Fig 6e: novelty_tail_behind_summary
-- Fig 6f:
-- Fig 6g:
-- Fig 6h
-- Fig 6i:
+- Fig 6d-i: novelty_tail_behind_summary
 
-### Figures 7
-- Fig 7
+### Figure 7
+- Fig 7b: lambda_novelty_2112
 
 ### Figure 8
 - Fig 8
