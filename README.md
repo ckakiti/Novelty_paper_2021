@@ -51,7 +51,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - description
 - Input:
 - Output:
-  - fig 7b, fig 8b
+  - fig 7b, fig 8b-d
 
 ## Divided by figure
 
@@ -91,9 +91,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Fig 7b: lambda_novelty_2112
 
 ### Figure 8
-- Fig 8b: lambda_novelty_2112
-- Fig 8c:
-- Fig 8d:
+- Fig 8b-d: lambda_novelty_2112
 
 ### Supplementary Figure 2
 - novelty_comparison_multi_days
