@@ -24,8 +24,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Description: creates line plots for Figure 2
 - Input: akiti_miceID_210318.xlsx, DLC_label.mat
 - Output: 
-  - line plots (2a-c) 
-  - bout_early_late.tif, distToObj_nose-tail.tif, distToObj.tif, nose-Tail.tif (Fig 2a)
+  - line plots (2a-c)
 
 ### [Moseq_DLC_2107.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/Moseq_DLC_2107.m)
 - Description:
@@ -70,8 +69,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Fig 1e-g: analy_novelty2103
 
 ### Figure 2
-- Fig 2a: analy_novelty_multi_sessions_2012
-- Fig 2b-c: 
+- Fig 2a-c: analy_novelty_multi_sessions_2012
 - Fig 2d-e: analy_novelty2103
 
 ### Figure 3
