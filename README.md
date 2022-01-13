@@ -53,6 +53,12 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Output:
   - fig 7b, fig 8b-d
 
+### [MoSeqSyllablePos_wDLC.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/)
+- description
+- Input:
+- Output:
+  - supp fig 4
+
 ## Divided by figure
 
 ### Figure 1
@@ -100,4 +106,4 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - 
 
 ### Supplementary Figure 4
-- 
+- MoSeqSyllablePos_wDLC
