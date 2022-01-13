@@ -267,7 +267,7 @@ delta_all{initial_n} = delta;
 
 end
 
-%%
+%% fig 8b (top rows)
 scrsz = get(groot,'ScreenSize');
 figure('Position',[1 scrsz(4)/1.7 scrsz(3)/1.7 scrsz(4)/1.7])
 % winterColors = colormap(winter(9));
@@ -417,8 +417,7 @@ set(gcf,'color','w')
 
 end
 
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%familiar object
+%% familiar object (fig 8b, bottom row)
 figure
 subplot(1,5,1)
 plot(T,[W2_all{11}(1,1:(end-1)) 0],'k-')
@@ -477,57 +476,7 @@ set(gca,'tickdir','out')
 set(gca,'FontSize',10)
 set(gcf,'color','w')
 
-%%
-figure
-subplot(1,3,1)
-% plot(pp,'-')
-plot(2*sqrt(pp),'-')
-axis([0 500 0 2])
-title('threat uncertainty')
-xlabel('trial')
-ylabel('2*std')
-box off
-set(gca,'ylim',[0 1])
-set(gca,'tickdir','out')
-set(gca,'FontSize',15)
-set(gcf,'color','w')
-
-subplot(1,3,2)
-x = -5:0.1:5;
-% m = delta(1,t_stim2); %last setting (bonus 2)
-y1 = normpdf(x,V(1,t_stim+80),pp(1)); %last setting (bonus 2)
-y2 = normpdf(x,0,measure);
-% y2 = normpdf(x,m(1,t_stim2)+V(1,t_stim2),measure);
-plot(x,y1)
-hold on
-plot(x,y2)
-legend('estimation','measurement')
-title('trial 1')
-xlabel('threat')
-ylabel('pdf')
-box off
-set(gca,'tickdir','out')
-set(gca,'FontSize',15)
-set(gcf,'color','w')
-
-subplot(1,3,3)
-x = -5:0.1:5;
-m = delta(100,t_stim2);
-y1 = normpdf(x,V(100,t_stim+80),pp(100));
-y2 = normpdf(x,0,measure);
-plot(x,y1)
-hold on
-plot(x,y2)
-legend('estimation','measurement')
-title('trial 100')
-xlabel('threat')
-ylabel('pdf')
-box off
-set(gca,'tickdir','out')
-set(gca,'FontSize',15)
-set(gcf,'color','w')
-
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% fig 8c
 
 figure
 subplot(1,2,1)
@@ -635,7 +584,7 @@ set(gca,'FontSize',15)
 set(gcf,'color','w')
 
 
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% fig 8d
 % behavior
 
 %approach drive
