@@ -5,7 +5,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 ## Organized by code
 
 ### [analy_novelty2103.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/analy_novelty2103.m)
-- creates bout_multi.mat (needed for plotting multi-day behavior imagesc)
+- creates bout_multi.mat (needed to make colorplots), and portions of Figures 1-4
 - Input: akiti_miceID_210318.xlsx, DLC_label.mat
 - Output: 
   - bout_multi.mat
