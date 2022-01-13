@@ -186,7 +186,7 @@ Nose_start_each_multi{group_n} = Nose_start_each;
 
 end
 
-% fig 5b
+%% fig 5b
 figure
 for i = 1:4
 
@@ -249,7 +249,7 @@ syl_order{i} = I;
 
 end
 
-% fig 5c, frequency plots
+%% fig 5c, frequency plots
 figure
 subplot(1,2,1)
 plot([Syl9_freq_session_multi{1};Syl9_freq_retreat_multi{1}],'ko-')
@@ -325,155 +325,7 @@ for i = 1:length(bout_tail_each_stim)
     Approach_mouse = [Approach_mouse,approach_mouse];
 end
 ind = find(Approach_mouse);
-[h,p_ttest_tail_behind_vs_exposure_stim_syl9] = ttest(Syl9_freq_tail_behind_multi{1}(ind),Syl9_freq_tail_exposure_multi{1}(ind))
-
-%% time course
-
-% this part is used to save time-course data
-Syl79_trial_mean = []; Syl79_trial_ste =[]; Syl79_Trial ={};
-Syl79_others_trial_mean = []; Syl79_others_trial_ste =[]; Syl79_others_Trial ={};
-colorset = {[0 0 0],[1,0,0],[0 0 0],[1,0,0]};
-% group_compare = [1 2];
-% group_compare = [3 4];
-group_compare = [1 2 3 4];
-sylset = 79;
-% sylset = [79,94,14];
-% sylset = [65,30,88,91];
-for iii = 1:length(sylset)
-    Syl_all_multi = {{};{};{};{}}; Syl_others_all_multi = {{};{};{};{}};
-    
-    for i = group_compare
-        Syl79_trial = []; Syl79_all = []; Syl79_others_trial = []; Syl79_others_all = [];
-        for ii = 1:length(Syl_each_multi{i})
-            syl79_trial = (Syl_each_multi{i}{ii}==sylset(iii));
-            syl79_trial = max(syl79_trial(:,31:60),[],2); %whether it exist in the trial or not
-%             syl79_trial_smooth = smooth(syl79_trial);
-            syl79_time = Nose_start_each_multi{i}{ii}(syl79_trial==1);
-            [N,edges] = histcounts(syl79_time,0:60*15:25*60*15);
-            Syl79_trial = [Syl79_trial;N]; %frequency of bouts with this syllable in a min in a single animal
-            Syl79_all = [Syl79_all,sum(syl79_trial)]; %total bouts with this syllable in a single animal
-            
-            syl79_others_time = Nose_start_each_multi{i}{ii}(syl79_trial==0); %all approach not include syl79
-            [N,edges] = histcounts(syl79_others_time,0:60*15:25*60*15);
-            Syl79_others_trial = [Syl79_others_trial;N]; %frequency of bouts with others in a min in a single animal
-            Syl79_others_all = [Syl79_others_all,sum(1-syl79_trial)]; %total bouts without this syllable in a single animal
-        end
-        
-        Syl_all_multi{i} = Syl79_all;
-        Syl79_Trial{i} = Syl79_trial;
-        Syl79_trial_mean = [Syl79_trial_mean;mean(Syl79_trial)];
-        Syl79_trial_ste = [Syl79_trial_mean;std(Syl79_trial)/sqrt(size(Syl79_trial,1))];
-        
-        Syl_others_all_multi{i} = Syl79_others_all;
-        Syl79_others_Trial{i} = Syl79_others_trial;
-        Syl79_others_trial_mean = [Syl79_others_trial_mean;mean(Syl79_others_trial)];
-        Syl79_others_trial_ste = [Syl79_others_trial_mean;std(Syl79_others_trial)/sqrt(size(Syl79_others_trial,1))];
-    end
-    
-    [h,p] = kstest2(Syl_all_multi{group_compare(1)},Syl_all_multi{group_compare(2)});
-end         
-
-group_compare = [3 4];
-% sylset = [79,94,14];
-sylset = [65,30,88,91];
-    Syl_all_multi = {{};{};{};{}};
-    for i = group_compare
-        Syl79_trial = []; Syl79_all = [];
-        for ii = 1:length(Syl_each_multi{i})
-            syl79_trial = (Syl_each_multi{i}{ii}==sylset(1)|Syl_each_multi{i}{ii}==sylset(2)|Syl_each_multi{i}{ii}==sylset(3)|Syl_each_multi{i}{ii}==sylset(4));
-            syl79_trial = max(syl79_trial(:,31:60),[],2); %whether it exist in the trial or not
-%             syl79_trial_smooth = smooth(syl79_trial);
-            syl79_time = Nose_start_each_multi{i}{ii}(syl79_trial==1);
-            [N,edges] = histcounts(syl79_time,0:60*15:25*60*15);
-            Syl79_trial = [Syl79_trial;N]; %frequency of bouts with this syllable in a min in a single animal
-            Syl79_all = [Syl79_all,sum(syl79_trial)]; %total bouts with this syllable in a single animal
-        end
-        Syl_all_multi{i} = Syl79_all;
-    end
-    [h,p] = kstest2(Syl_all_multi{group_compare(1)},Syl_all_multi{group_compare(2)});
-
-%% time course syl79 and others
-close all
-
-cmap = colormap(hsv(100));
-
-syl79_control = Syl79_Trial{3};
-mean_syl79_control = mean(syl79_control);
-syl79_others_control = Syl79_others_Trial{3};
-mean_others_control = mean(syl79_others_control);
-
-ste_syl79_control = std(syl79_control)/sqrt(size(syl79_control,1));
-ste_others_control = std(syl79_others_control)/sqrt(size(syl79_others_control,1));
-
-syl79_6OHDA = Syl79_Trial{4};
-mean_syl79_6OHDA = mean(syl79_6OHDA);
-syl79_others_6OHDA = Syl79_others_Trial{4};
-mean_others_6OHDA = mean(syl79_others_6OHDA);
-
-ste_syl79_6OHDA = std(syl79_6OHDA)/sqrt(size(syl79_6OHDA,1));
-ste_others_6OHDA = std(syl79_others_6OHDA)/sqrt(size(syl79_others_6OHDA,1));
-
-
-plotWin = 1:25;
-subplot(2,2,1)
-errorbar_patch(plotWin,mean_syl79_control,ste_syl79_control,cmap(79,:));
-hold on
-errorbar_patch(plotWin,mean_others_control,ste_others_control,'b');
-axis([0 25 -1 7])
-legend('syl79','others')
-xlabel('time(min)')
-ylabel('frequency')
-title('control')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',10)
-set(gcf,'color','w')
-
-subplot(2,2,2)
-errorbar_patch(plotWin,mean_syl79_6OHDA,ste_syl79_6OHDA,cmap(79,:));
-hold on
-errorbar_patch(plotWin,mean_others_6OHDA,ste_others_6OHDA,'b');
-axis([0 25 -1 7])
-legend('syl79','others')
-xlabel('time(min)')
-ylabel('frequency')
-title('6OHDA')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',10)
-set(gcf,'color','w')
-
-[h,p] = ttest2(mean(syl79_control,2),mean(syl79_6OHDA,2))
-[h,p] = kstest2(mean(syl79_control,2),mean(syl79_6OHDA,2));
-subplot(2,2,3)
-boxplot([mean(syl79_control,2),mean(syl79_6OHDA,2)])
-h=gca;
-h.XTick = 1:2; %every 5min
-title(p)
-h.XTickLabel = {'control','6OHDA'};
-ylabel('syl79 frequency/session')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',10)       
-set(gcf,'color','w')  
-
-[h,p] = ttest2(mean(syl79_others_control,2),mean(syl79_others_6OHDA,2))
-[h,p] = kstest2(mean(syl79_others_control,2),mean(syl79_others_6OHDA,2));
-subplot(2,2,4)
-boxplot([mean(syl79_others_control,2),mean(syl79_others_6OHDA,2)])
-h=gca;
-h.XTick = 1:2; %every 5min
-title(p)
-h.XTickLabel = {'control','6OHDA'};
-ylabel('others frequency/session')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',10)       
-set(gcf,'color','w')  
+[h,p_ttest_tail_behind_vs_exposure_stim_syl9] = ttest(Syl9_freq_tail_behind_multi{1}(ind),Syl9_freq_tail_exposure_multi{1}(ind)) 
 
 %% transition (Fig 5f)
 group_compare = [3 4];
