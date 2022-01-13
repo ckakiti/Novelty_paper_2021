@@ -1,6 +1,6 @@
 # Processing novelty data (Akiti et al. 2021)
 
-Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harvard (dot) edu. Data structure is explained [here](https://github.com/ckakiti/Novelty_paper_2021/blob/main/DataStructure.md). The following gives an overview of the code that produced each figure, organized either by code or by figure. Specifics for running each piece of code can be found in the comments within the code itself.
+Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harvard (dot) edu. Data structure is explained [here](https://github.com/ckakiti/Novelty_paper_2021/blob/main/DataStructure.md). The following gives an overview of the code that produced each figure, organized either [by code](https://github.com/ckakiti/Novelty_paper_2021/blob/main/README.md#organized-by-code) or [by figure](https://github.com/ckakiti/Novelty_paper_2021/blob/main/README.md#organized-by-code). Specifics for running each piece of code can be found in the comments within the code itself.
 
 ## Organized by code
 
