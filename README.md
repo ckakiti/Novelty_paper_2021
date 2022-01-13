@@ -41,7 +41,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 
 ### [photometry_novelty_summary.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/photometry_novelty_summary.m)
 - Description:
-- Input:
+- Input: akiti_miceID_210318.xlsx, 
 - Output:
   - fig 6c
 
