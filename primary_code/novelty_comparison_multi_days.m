@@ -105,7 +105,7 @@ n_approach_context = length(ind)/size(Bout_day_context,1)
 % [h,p_kstest_day1_stim_context] = kstest2(mean(Bout_min_stim(:,51:75),2),mean(Bout_min_context(:,51:75),2))
 
 
-% fig 4c
+%% fig 4c
 figure
 subplot(1,3,1)
 plot(Bout_5min_control'*60/5,'k')
@@ -150,7 +150,7 @@ set(gca,'FontSize',15)
 set(gcf,'color','w')
 
 
-% fig 3b
+%% fig 3b
 figure
 subplot(1,3,1)
 plot(Bout_5min_stim'*60/5,'k')
@@ -195,7 +195,7 @@ set(gca,'FontSize',15)
 set(gcf,'color','w')
 
 
-% fig 1d
+%% fig 1d
 figure
 subplot(1,3,1)
 plot(Bout_day_bigcontrol','k-')
@@ -334,7 +334,7 @@ m_plot = {mean(Bout_tail_behind_control_min(:,1:150),'omitnan');mean(Bout_tail_b
 s_plot = {std(Bout_tail_behind_control_min(:,1:150),'omitnan')/sqrt(size(Bout_tail_behind_control_min(:,1:150),1));...
     std(Bout_tail_behind_6OHDA_min(:,1:150),'omitnan')/sqrt(size(Bout_tail_behind_6OHDA_min,1))};
 
-% fig 4f
+%% fig 4f
 figure
 subplot(2,3,1)
 for i = 1:2
@@ -463,7 +463,7 @@ s_plot = {std(Bout_tail_behind_stim_min,'omitnan')/sqrt(size(Bout_tail_behind_st
     std(Bout_tail_behind_context_min,'omitnan')/sqrt(size(Bout_tail_behind_context_min,1))};
 
 
-% fig 3e
+%% fig 3e
 figure
 subplot(2,3,1)
 for i = 1:2

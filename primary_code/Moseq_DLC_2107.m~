@@ -4,7 +4,7 @@ close all
 clc
 
 %This codes analyze Moseq data of behavior syllables using XY label with DLC
-% Within MiceIndex_wLabels.mat:
+% Within MiceIndex_wLabels.mat: Mice has 18 mice data
 % In 'Mice', ExpDay has moseq_align data, same length as DLC
 
 cd('/Users/cakiti/Dropbox (Uchida Lab)/Korleki Akiti/Behavior/novelty_paper_2021')

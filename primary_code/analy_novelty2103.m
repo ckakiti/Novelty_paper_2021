@@ -3,8 +3,6 @@ clear
 close all
 clc
 
-%this code is similar to 2011 but use multiple session multiple animals
-
 % Labels(:,2) Nose x (pixel)
 % Labels(:,3) Nose y (pixel)
 % Labels(:,5) Leftear x (pixel)

@@ -104,7 +104,7 @@ if(0)
     saveas(fig1, ['MoSeqPos_wDLC_syl' num2str(IntSyllable) '_***.tif'])
 end
 
-%% merge plot for all syls (w lines)
+%% merge plot for all syls
 clear
 clc
 close all

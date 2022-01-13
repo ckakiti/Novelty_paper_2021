@@ -1,27 +1,18 @@
 %function analy_novelty_multi_sessions_2012
-
-%this is similar to video_Operant_multi_labels_2010, but for novelty in
-%Korleki's rig
-% for single animals
+clear
+close all
+clc
 
 cd('/Users/cakiti/Dropbox (Uchida Lab)/Korleki Akiti/Behavior/novelty_paper_2021')
 [animal_info,text,raw] = xlsread('akiti_miceID_210318.xlsx');
 animal = text(2:end,3);
 condition = text(2:end,9);
 
-% group = {'Capoeira','Planets'};
-% animal = {'Jupiter_6OHDA','Mars_6OHDA','Neptune_6OHDA','Pluto_6OHDA','Uranus_6OHDA','Venus_6OHDA',...
-%     'Earth_saline','Mercury_saline','Saturn_saline'};
-% % animal = {'Au_stim','Ginga_stim','Negativa_stim','Esquiva_cont','MeiaLua_cont','Queixada_cont'};
 % test = {'hab1','hab2','novel1','novel2','novel3','novel4','novel5','novel6'};
 test = {'hab1','hab2','novel1','novel2','novel3','novel4'};
 session_length = 25; %min
 test_chosen = 1:length(test);
-% test_chosen = 3;
 test_length = length(test_chosen);
-% group_n = 2;
-% groupfolder = strcat('/Users/mitsukouchida/Desktop/Korleki/',group{group_n});
-% cd(groupfolder);
 group = {'stimulus','contextual','saline','6OHDA','FP_all'};
 
 Bout_ratio = []; Ratio_nose_tail = [];mean_nose_tail = [];std_nose_tail = [];Bout_tail_behind_frequency = [];
@@ -40,7 +31,6 @@ for animal_n = ind(1)
     animal{animal_n}
     animalfolder = strcat(groupfolder,'/',animal{animal_n});
     cd(animalfolder);
-%     load('Arena_Obj_Pos','obj_center','arena') %xy positions of object, arena
 
     Labels_multi = [];
 for test_n = test_chosen
@@ -49,231 +39,20 @@ for test_n = test_chosen
       test{test_n}
       
 load('DLC_label','Labels')
-      
-% filename = dir('*DeepCut_*.csv');
-% 
-% if length(filename)>0
-%   filename.name  
-%   Labels = csvread(filename.name,3,0);
-%   event_frame = 1:size(Labels,1); %choose frame
-%   event_frame = 250:size(Labels,1); %choose frame
-
-
-%% Labels
-
-% Labels(:,2) Nose x (pixel)
-% Labels(:,3) Nose y (pixel)
-% Labels(:,5) Leftear x (pixel)
-% Labels(:,6) Leftear y (pixel)
-% Labels(:,8) Rightear x (pixel)
-% Labels(:,9) Rightear y (pixel)
-% Labels(:,11) Tailbase x (pixel)
-% Labels(:,12) Tailbase y (pixel)
-% Labels(:,14) Tailmidpoint x (pixel)
-% Labels(:,15) Tailmidpoint y (pixel)
-% Labels(:,17) Tailtip x (pixel)
-% Labels(:,18) Tailtip y (pixel)
-% Labels(:,20) Head x (pixel) 'average of nose, leftear and rightear'
-% Labels(:,21) Head y (pixel)
-% Labels(:,22) Body x (pixel) 'average of head and tail base'
-% Labels(:,23) Body y (pixel)
-% Labels(:,24) Tail x (pixel) 'average of tailtip, midpoint and base'
-% Labels(:,25) Tail y (pixel)
-% Labels(:,26) head speed (pixel)
-% Labels(:,27) head accerelation (pixel)
-% Labels(:,28) head jerk (pixel)
-% Labels(:,29) body speed (pixel)
-% Labels(:,30) body accerelation (pixel)
-% Labels(:,31) body jerk (pixel)
-% Labels(:,32) nose distance from object (pixel)
-% Labels(:,33) head distance from object (pixel)
-% Labels(:,34) tailbase distance from object (pixel)
-% Labels(:,35) body length (pixel)
-% Labels(:,36) head speed related to object (pixel)
-% Labels(:,37) head speed unrelated to object (pixel)
-% Labels(:,38) tail-base from wall (pixel)
-%image (480x640 pixels operant box)
-% arena (24 x 19 cm, 200x180 pixel operant box)
-% 6.3/42=0.15 cm/pixel
-% 15 frame per second
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% velocity and acceleration
 
 session_time = ((1:size(Labels,1))/15)/60; %min
-head_speed_smooth = movmean(15*0.15*Labels(:,26),4000);
-body_speed_smooth = movmean(15*0.15*Labels(:,29),4000);
-% figure
-
-% subplot(2,1,1)
-% plot(session_time,head_speed_smooth)
-% xlabel('min')
-% ylabel('cm/s')
-% title('head speed')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',20)
-% set(gcf,'color','w')
-% 
-% subplot(2,1,2)
-% plot(session_time,body_speed_smooth)
-% xlabel('min')
-% ylabel('cm/s')
-% title('body speed')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',20)
-% set(gcf,'color','w')
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% noramlized with object position
-
-% figure
-% subplot(1,2,1)
-% plot(0.15*Labels(1:10:end,20),0.15*Labels(1:10:end,21))
-% xlabel('cm')
-% ylabel('cm')
-% title('head')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',20)
-% 
-% subplot(1,2,2)
-% plot(0.15*Labels(1:10:end,11),0.15*Labels(1:10:end,12))
-% xlabel('cm')
-% ylabel('cm')
-% title('tail')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',20)
-% set(gcf,'color','w')
-% 
-% figure
-% subplot(1,2,1)
-% plot(0.15*Labels(1:(10*60*15),20),0.15*Labels(1:(10*60*15),21)) %first 10min
-% xlabel('cm')
-% ylabel('cm')
-% title('head first 10 min')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',15)
-% 
-% subplot(1,2,2)
-% plot(0.15*Labels((end-10*60*15+1):end,20),0.15*Labels((end-10*60*15+1):end,21)) %last 10 min
-% xlabel('cm')
-% ylabel('cm')
-% title('head last 10 min')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',15)
-% set(gcf,'color','w')
+% noramlized with object position
 
 nose_log = -log10(0.15*Labels(:,32));
 nose_log(find(nose_log>0.5))=0.5;
-% figure
-% subplot(3,1,1)
-% plot(session_time,nose_log,'r-')
-% xlabel('min')
-% ylabel('log cm')
-% title('nose from object')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',15)
-% 
+
 tail_log = -log10(0.15*Labels(:,34));
 tail_log(find(tail_log>0.5))=0.5;
-% subplot(3,1,2)
-% plot(session_time,tail_log,'k-')
-% xlabel('min')
-% ylabel('log cm')
-% title('tail from object')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',15)
-% 
-% subplot(3,1,3)
-% plot(session_time,nose_log,'r-')
-% hold on
-% plot(session_time,tail_log,'k-')
-% xlabel('min')
-% ylabel('log cm')
-% % title('distance from object')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',15)
-% set(gcf,'color','w')
-% 
-% nose_close = movmin(0.15*Labels(:,32),1000);
-% tail_close = movmin(0.15*Labels(:,34),1000);
-% nose_close_log = -log10(nose_close);
-% nose_close_log(find(nose_close_log>0.5))=0.5;
-% tail_close_log = -log10(tail_close);
-% tail_close_log(find(tail_close_log>0.5))=0.5;
-% nose_smooth = smoothdata(nose_close_log,'lowess',4000); %movemean,lowess, rlowess, loess
-% tail_smooth = smoothdata(tail_close_log,'lowess',4000);
-% 
-% figure
-% subplot(4,1,1)
-% plot(session_time,nose_close_log,'r-')
-% hold on
-% plot(session_time,nose_smooth,'m-','Linewidth',2)
-% xlabel('min')
-% ylabel('log cm')
-% title('nose closest from object')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',15)
-% 
-% subplot(4,1,2)
-% plot(session_time,tail_close_log,'k-')
-% hold on
-% plot(session_time,tail_smooth,'g-','Linewidth',2)
-% xlabel('min')
-% ylabel('log cm')
-% title('tail closest from object')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',15)
-% 
-% subplot(4,1,3)
-% plot(session_time,nose_smooth,'m-','Linewidth',2)
-% hold on
-% plot(session_time,tail_smooth,'g-','Linewidth',2)
-% xlabel('min')
-% ylabel('log cm')
-% title('closest from object')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',15)
-% set(gcf,'color','w')
-% 
-% nose_tail = smoothdata((nose_close - tail_close),'lowess',4000);
-% 
-% subplot(4,1,4)
-% plot(session_time,nose_tail,'k-','Linewidth',2)
-% xlabel('min')
-% ylabel('cm')
-% title('nose - tail closest')
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',15)
-% set(gcf,'color','w')
 
-%% approach-retreat bouts
+
+% approach-retreat bouts
 
 object_threshold = 7;
 
@@ -284,6 +63,7 @@ if length(bout_end)<length(bout_start)
     bout_start = bout_start(1:end-1);
 end
 
+% fig 2a
 figure(1)
 subplot(2,length(test),test_n)
 % for i = 1:length(bout_end)
@@ -374,69 +154,9 @@ bout_tail_behind(t_bout_tail_behind) = 1;
 bout_tail_behind_frequency = movsum(bout_tail_behind,900); %900 frame, 60s, 1min
 bout_tail_behind_frequency_smooth = smoothdata(bout_tail_behind_frequency,'lowess',4000);
 
-figure(2)
-subplot(4,length(test),3*length(test)+test_n)
-% subplot(4,1,4)
-plot(session_time, bout_tail_behind_frequency)
-hold on
-plot(session_time,bout_tail_behind_frequency_smooth,'k-','Linewidth',2)
-axis([0 30 0 12])
-title('bout with tail behind')
-xlabel('min')
-ylabel('/min')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',10)
-set(gcf,'color','w')
-
-subplot(4,length(test),test_n)
-% subplot(4,1,1)
-% plot(session_time,frame_within,'o')
-% hold on
-plot(session_time,bout_ratio,'k-','Linewidth',2)
-axis([0 30 0 0.7])
-title('time close to object')
-xlabel('min')
-ylabel('fraction')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',10)
-set(gcf,'color','w')
-
-subplot(4,length(test),length(test)+test_n)
-% subplot(4,1,2)
-plot(session_time,bout_start_frequency)
-hold on
-plot(session_time,bout_start_frequency_smooth,'k-','Linewidth',2)
-axis([0 30 0 15])
-title('approach bout frequency')
-xlabel('min')
-ylabel('/min')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',10)
-
-bout_length_smooth = smoothdata(movmax(bout_length,10),'lowess',40);
-subplot(4,length(test),2*length(test)+test_n)
-% subplot(4,1,3)
-plot(bout_length)
-hold on
-plot(bout_length_smooth,'k-','Linewidth',2)
-axis([0 length(bout_length) 0 25])
-title('approach bout length')
-xlabel('bout')
-ylabel('s')
-box off
-set(gca,'tickdir','out')
-set(gca,'TickLength',2*(get(gca,'TickLength')))
-set(gca,'FontSize',10)
-set(gcf,'color','w')
-
+% fig 2b-c
 t_bout = find(frame_within);
-figure(3)
+figure(2)
 subplot(4,length(test),test_n)
 plot(session_time,nose_log,'r-')
 hold on
@@ -497,7 +217,6 @@ for i = 1:binN
 end
 
 subplot(4,length(test),3*length(test)+test_n)
-% subplot(4,1,4)
 plot(ratio_nose_tail,'k-','Linewidth',2)
 axis([0 30 0 0.5])
 title('tail exposure')
@@ -508,42 +227,6 @@ set(gca,'tickdir','out')
 set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',10)
 set(gcf,'color','w')
-
-% figure
-% subplot(1,2,1)
-% imagesc(-Bout_nose_all,[-20 0])
-% colormap yellowblue
-% xlabel('time - water (ms)');
-% h=gca;
-% h.XTick = 0:100:200;
-% h.XTickLabel = 0:0.1:0.2;
-% ylabel('bout')
-% h.YTick = [];
-% h.YTickLabel = {};
-% title('nose')
-% colorbar
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',20)
-% set(gcf,'color','w')
-% 
-% subplot(1,2,2)
-% imagesc(-Bout_tail_all,[-20 0])
-% colormap yellowblue
-% xlabel('time - water (s)');
-% h=gca;
-% h.XTick = 0:100:200;
-% h.XTickLabel = 0:0.1:0.2;
-% h.YTick = [];
-% h.YTickLabel = {};
-% title('tail')
-% colorbar
-% box off
-% set(gca,'tickdir','out')
-% set(gca,'TickLength',2*(get(gca,'TickLength')))
-% set(gca,'FontSize',20)
-% set(gcf,'color','w')
 
 end
 end
