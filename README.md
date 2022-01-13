@@ -13,7 +13,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
   - violin plots (Fig 2d-e)
 
 ### [novelty_comparison_multi_days.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/novelty_comparison_multi_days.m)
-- Description: creates ___ for Figures 1, 3, and 4
+- Description: creates line plots and boxplots for Figures 1, 3, and 4
 - Input: bout_multi.mat
 - Output: Fig 1d, Fig 3b, Fig 3c/d (frequency comparison), Fig 3e, Fig 3f, Fig 4c, Fig 4d/e (frequency comparison), Fig 4f
 
