@@ -27,13 +27,13 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
   - line plots (2a-c)
 
 ### [Moseq_DLC_2107.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/Moseq_DLC_2107.m)
-- Description:
-- Input:
+- Description: creates a portion of the color plots and line plots for Figure 5
+- Input: akiti_miceID_210318.xlsx, DLC_label.mat, MiceIndex_wLabels_combine3L_update.mat
 - Output:
   - fig 5b, fig 5c (frequency plots), fig 5f
 
 ### [Moseq_DLC_2107_2.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/Moseq_DLC_2107_2.m)
-- Description:
+- Description: creates a portion of the color plots for Figure 5
 - Input:
 - Output:
   - fig 5c (colorplots)
