@@ -40,8 +40,8 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
   - fig 5c (colorplots)
 
 ### [photometry_novelty_summary.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/photometry_novelty_summary.m)
-- Description:
-- Input: akiti_miceID_210318.xlsx, 
+- Description: plots zscored photometry response aligned to different time points
+- Input: akiti_miceID_210318.xlsx, animalname_novel1_approach_start.mat, animalname_novel1_retreat.mat, animalname_novel1_retreat_end.mat
 - Output:
   - fig 6c
 
