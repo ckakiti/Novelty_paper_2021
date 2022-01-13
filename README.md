@@ -21,9 +21,10 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
   - Fig 4c, Fig 4d/e (frequency comparison), Fig 4f
 
 ### [analy_novelty_multi_sessions_2012.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/analy_novelty_multi_sessions_2012.m)
-- Description: creates distToObj, nose-tail, and bout plots for multiple mice and sessions
-- Input: Config_NovAna, MiceIndex.mat, DLC_label.mat
+- Description: creates line plots for Figure 2
+- Input: akiti_miceID_210318.xlsx, DLC_label.mat
 - Output: 
+  - line plots (2a-c) 
   - bout_early_late.tif, distToObj_nose-tail.tif, distToObj.tif, nose-Tail.tif (Fig 2a)
 
 ### [Moseq_DLC_2107.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/Moseq_DLC_2107.m)
