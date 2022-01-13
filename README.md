@@ -34,7 +34,7 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 
 ### [Moseq_DLC_2107_2.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/Moseq_DLC_2107_2.m)
 - Description: creates a portion of the color plots for Figure 5
-- Input:
+- Input: akiti_miceID_210318.xlsx, DLC_label.mat, MiceIndex_wLabels_combine3L_update.mat
 - Output:
   - fig 5c (colorplots)
 
