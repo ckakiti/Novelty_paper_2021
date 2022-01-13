@@ -54,14 +54,14 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
   - fig 6d-i
 
 ### [lambda_novelty_2112.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/lambda_novelty_2112.m)
-- Description:
-- Input:
+- Description: creates modeling plots for Figures 7 and 8
+- Input: n/a
 - Output:
   - fig 7b, fig 8b-d
 
 ### [MoSeqSyllablePos_wDLC.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/MoSeqSyllablePos_wDLC.m)
-- Description:
-- Input:
+- Description: creates supplementary plots of spatial position of syllable expression 
+- Input: MiceIndex_wLabels_combine3L_update.mat, DLC_label.mat
 - Output:
   - supp fig 4
 
