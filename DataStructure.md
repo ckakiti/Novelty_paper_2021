@@ -53,6 +53,4 @@ Labels(:,37) head speed unrelated to object (pixel)
 Labels(:,38) tail-base from wall (pixel)
 ```
 
-MoSeq data is stored in `MoSeq_MiceIndex_wLabels_combine3L.mat`.
-
-Photometry data is stored in files named `*approach_start.mat`, `*retreat.mat`, and `*retreat_end.mat` (3 files for the first day of novelty for each animal). Information about each mouse is stored in akiti_miceID_211222.xlsx. 
+MoSeq data is stored in `MoSeq_MiceIndex_wLabels_combine3L.mat`. Photometry data is stored in files named `*approach_start.mat`, `*retreat.mat`, and `*retreat_end.mat` (3 files for the first day of novelty for each animal). Information about each mouse is stored in akiti_miceID_211222.xlsx. 
