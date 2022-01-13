@@ -18,7 +18,7 @@ DLC data is stored in .mat files. Given .mat files were renamed based on the fol
 -- akiti_miceID_211222.xlsx
 ```
 
-There is a separate .mat file for each session. MoSeq data is stored in `MoSeq_MiceIndex_wLabels_combine3L.mat`. Photometry data is stored in .mat files named `*approach_start.mat`, `*retreat.mat`, and `*retreat_end.mat` (3 files for the first day of novelty for each animal). Information about each mouse is stored in akiti_miceID_211222.xlsx. 
+There is a separate .mat file for each session. MoSeq data is stored in `MoSeq_MiceIndex_wLabels_combine3L.mat`. Photometry data is stored in files named `*approach_start.mat`, `*retreat.mat`, and `*retreat_end.mat` (3 files for the first day of novelty for each animal). Information about each mouse is stored in akiti_miceID_211222.xlsx. 
 
 DLC_label.mat contains the variable "Labels" which as the following format:
 ```
