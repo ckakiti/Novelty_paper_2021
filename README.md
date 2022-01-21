@@ -9,7 +9,8 @@ Data used in Akiti et al. 2021 available upon request - akiti (at) g (dot) harva
 - Input: akiti_miceID_210318.xlsx, DLC_label.mat
 - Output: 
   - bout_multi.mat
-  - colorplots (Fig 1d boxplots, Fig 1e-g, Fig 2d-e, Fig 3c/d, Fig 4d/e)
+  - box plots (Fig 1d)
+  - colorplots (Fig 1e-g, Fig 2d-e, Fig 3c/d, Fig 4d/e)
   - violin plots (Fig 2d-e)
 
 ### [novelty_comparison_multi_days.m](https://github.com/ckakiti/Novelty_paper_2021/blob/main/primary_code/novelty_comparison_multi_days.m)
