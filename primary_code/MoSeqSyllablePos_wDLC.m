@@ -1,7 +1,9 @@
-%% plot syllable position/trajectory
-%  need: MiceIndex_wLabels_***.mat (from add_MoSeqLabels_tsFromH5.m)
-%        DLC_label.mat for each session in MiceIndex (from analy_novelty2103.m)
+%% MoSeqSyllablePos_wDLC.m
+%  this code analyzes syllable position/trajectory (Figure S4) 
 
+%  input: MiceIndex_wLabels_combine3L_update.mat DLC_label.mat file for each session
+
+%% preprocessing
 clear
 clc
 close all

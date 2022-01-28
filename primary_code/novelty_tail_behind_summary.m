@@ -1,4 +1,9 @@
-%function novelty_tail_behind_summary
+%% novelty_tail_behind_summary.m
+%  this code creates majority of photometry plots (Figure 6d-i)
+
+%  input: akiti_miceID_210318.xlsx, ANIMALNAME_novel1_retreat.mat
+
+%% preprocessing
 clear
 close all
 clc

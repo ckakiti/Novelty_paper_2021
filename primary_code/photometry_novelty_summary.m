@@ -1,4 +1,14 @@
-%function photometry_novelty_summary
+%% photometry_novelty_summary.m
+%  this code creates plots of photometry response aligned to different time
+%  points (Figure 6c); for rest of Figure 6 plots, see novelty_tail_behind_summary.m
+
+%  input: akiti_miceID_210318.xlsx, ANIMALNAME_novel1_approach_start.mat,
+%         ANIMALNAME_novel1_retreat.mat, ANIMALNAME_novel1_retreat_end.mat
+
+%% preprocessing
+clear
+close all
+clc 
 
 cd('/Users/cakiti/Dropbox (Uchida Lab)/Korleki Akiti/Behavior/novelty_paper_2021')
 [animal_info,text,raw] = xlsread('akiti_miceID_210318.xlsx');

@@ -1,5 +1,9 @@
-%function lambda_novelty_2112
-% TAKES A WHILE TO RUN THIS SECTION
+%% function lambda_novelty_2112
+%  this code creates modeling plots for Figures 7+8
+
+%  input: n/a
+
+%% preprocessing (TAKES A WHILE TO RUN THIS SECTION)
 clear
 close all
 clc

@@ -1,4 +1,9 @@
-%function analy_novelty_multi_sessions_2012
+%% analy_novelty_multi_sessions_2012.m
+%  this code creates line plots for Figure 2 (a-c) 
+
+%  input: akiti_miceID_210318.xlsx, DLC_label.mat file for each session
+
+%% preprocessing
 clear
 close all
 clc

@@ -1,4 +1,10 @@
-% function Moseq_DLC_2107_2
+%% Moseq_DLC_2107_2.m
+%  this code creates a portion of the color plots for Figure 5
+
+%  input: akiti_miceID_210318.xlsx, DLC_label.mat file for each session,
+%         MiceIndex_wLabels_combine3L_update.mat
+
+%% preprocessing
 clear
 close all
 clc
