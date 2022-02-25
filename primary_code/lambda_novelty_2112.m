@@ -8,13 +8,6 @@ clear
 close all
 clc
 
-% similar to 2111, but initial threat prediction decays, not sustains
-% shaping bonus is fixed, no learning
-% similar to 2110, but behavioral output was added
-% similar to lambda_modification_novelty_2110, but for a composite figure
-% similar to 2005_2 but for novelty with a second cue
-% this is similar to lambda1911
-
 % only one order (object possesses threat)
 
 clear

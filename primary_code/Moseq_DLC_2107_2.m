@@ -115,8 +115,8 @@ syllable = Mice(animal_n_Moseq).ExpDay(test_n).moseq_align;
 % make matrix of syllable
 
 % trigger = {nose_closest'};
-% trigger = {nose_closest_tail_behind'};
-trigger = {nose_closest_tail_exposure'};
+trigger = {nose_closest_tail_behind'};
+% trigger = {nose_closest_tail_exposure'};
 
 plotdata = syllable;
 plotWin = -45:45; %3s*15frames
@@ -168,8 +168,10 @@ Syl9_freq_retreat_multi{group_n} = Syl9_freq_retreat;
 
 end
 
-%% enriched in stimulus novelty
-% fig 5c, tail behind 
+%% fig 5c 
+% enriched in stimulus novelty
+% adjust 'trigger' variable to create either tail behind / tail exposure plots
+
 figure
 for i = 1:4
 group{i}

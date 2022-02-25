@@ -140,15 +140,6 @@ Bout_with_tail_6OHDA_min = Bout_with_tail_6OHDA(:,1:60*15:end); %1 min
 Bout_with_tail_block_6OHDA = movmean(Bout_with_tail_6OHDA_min,[0,4],2); %average over 5min, per min
 Bout_with_tail_block_6OHDA = Bout_with_tail_block_6OHDA(:,1:5:end);
 
-[h,p_tail_behind_day1_control_6OHDA] = ttest2(mean(Bout_tail_behind_control_min(:,51:75),2),...
-    mean(Bout_tail_behind_6OHDA_min(:,51:75),2));
-[h,p_with_tail_day1_control_6OHDA] = ttest2(mean(Bout_with_tail_control_min(:,51:75),2),...
-    mean(Bout_with_tail_6OHDA_min(:,51:75),2));
-[h,p_tail_behind_day1_stim_context] = ttest2(mean(Bout_tail_behind_stim_min(:,51:75),2),...
-    mean(Bout_tail_behind_context_min(:,51:75),2));
-[h,p_with_tail_day1_stim_context] = ttest2(mean(Bout_with_tail_stim_min(:,51:75),2),...
-    mean(Bout_with_tail_context_min(:,51:75),2));
-
 
 %% Fig 1d
 figure
@@ -398,32 +389,6 @@ set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',15)
 set(gcf,'color','w')
 
-% [h,p_tail_behind_day1_control_6OHDA] = ttest2(mean(Bout_tail_behind_control_min(:,51:75),2),...
-%     mean(Bout_tail_behind_6OHDA_min(:,51:75),2));
-% [h,p_with_tail_day1_control_6OHDA] = ttest2(mean(Bout_with_tail_control_min(:,51:75),2),...
-%     mean(Bout_with_tail_6OHDA_min(:,51:75),2));
-
-% [h,p_tail_behind_day1_stim_context] = ttest2(mean(Bout_tail_behind_stim_min(:,51:75),2),...
-%     mean(Bout_tail_behind_context_min(:,51:75),2));
-% [h,p_with_tail_day1_stim_context] = ttest2(mean(Bout_with_tail_stim_min(:,51:75),2),...
-%     mean(Bout_with_tail_context_min(:,51:75),2));
-
-[h,p_tail_behind_day1_control_stim] = ttest2(mean(Bout_tail_behind_control_min(:,51:75),2),...
-    mean(Bout_tail_behind_stim_min(:,51:75),2))
-[h,p_tail_behind_day1_control_context] = ttest2(mean(Bout_tail_behind_control_min(:,51:75),2),...
-    mean(Bout_tail_behind_context_min(:,51:75),2))
-[h,p_tail_behind_day1_6OHDA_stim] = ttest2(mean(Bout_tail_behind_6OHDA_min(:,51:75),2),...
-    mean(Bout_tail_behind_stim_min(:,51:75),2))
-[h,p_tail_behind_day1_6OHDA_context] = ttest2(mean(Bout_tail_behind_6OHDA_min(:,51:75),2),...
-    mean(Bout_tail_behind_context_min(:,51:75),2))
-[h,p_with_tail_day1_control_stim] = ttest2(mean(Bout_with_tail_control_min(:,51:75),2),...
-    mean(Bout_with_tail_stim_min(:,51:75),2))
-[h,p_with_tail_day1_control_context] = ttest2(mean(Bout_with_tail_control_min(:,51:75),2),...
-    mean(Bout_with_tail_context_min(:,51:75),2))
-[h,p_with_tail_day1_6OHDA_stim] = ttest2(mean(Bout_with_tail_6OHDA_min(:,51:75),2),...
-    mean(Bout_with_tail_stim_min(:,51:75),2))
-[h,p_with_tail_day1_6OHDA_context] = ttest2(mean(Bout_with_tail_6OHDA_min(:,51:75),2),...
-    mean(Bout_with_tail_context_min(:,51:75),2))
 
 %% Fig 3f
 figure
@@ -631,10 +596,6 @@ set(gca,'FontSize',15)
 set(gcf,'color','w')
 
 
-[h,p_ttest_bout_duration_stimulus_context] = ttest2(max(Bout_duration_max_stimulus(:,51:75),[],2),...
-    max(Bout_duration_max_context(:,51:75),[],2))
-[h,p_kstest_bout_duration_stimulus_context] = kstest2(max(Bout_duration_max_stimulus(:,51:75),[],2),...
-    max(Bout_duration_max_context(:,51:75),[],2))
 
 Bout_duration_max_control = Bout_duration_max_multi{3};
 Bout_duration_max_6OHDA = Bout_duration_max_multi{4};
@@ -652,9 +613,3 @@ set(gca,'tickdir','out')
 set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',15)
 set(gcf,'color','w')
-
-
-[h,p_ttest_bout_duration_control_6OHDA] = ttest2(max(Bout_duration_max_control(:,51:75),[],2),...
-    max(Bout_duration_max_6OHDA(:,51:75),[],2))
-[h,p_kstest_bout_duration_control_6OHDA] = kstest2(max(Bout_duration_max_control(:,51:75),[],2),...
-    max(Bout_duration_max_6OHDA(:,51:75),[],2))

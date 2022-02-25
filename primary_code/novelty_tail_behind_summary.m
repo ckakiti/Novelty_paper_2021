@@ -380,13 +380,6 @@ set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',20)
 set(gcf,'color','w')
 
-[rho,pval_dopamine_first_tail_exposure_Spearman] = ...
-    corr(First_tail_exposure(First_tail_exposure>0)',mean_Mean_DeltaF(First_tail_exposure>0),'Type','Spearman')
-[rho,pval_dopamine_first_tail_exposure_time_Spearman] = corr(First_tail_exposure_time',mean_Mean_DeltaF,'Type','Spearman')
-[rho,pval_dopamine_first_tail_exposure_Pearson] = ...
-    corr(First_tail_exposure(First_tail_exposure>0)',mean_Mean_DeltaF(First_tail_exposure>0),'Type','Pearson')
-[rho,pval_dopamine_first_tail_exposure_time_Pearson] = corr(First_tail_exposure_time',mean_Mean_DeltaF,'Type','Pearson')
-
 %% DA activity correlates behavior? (fig 6h)
 %regress DA response to all approach bouts, past average DA responses, current retreat (tail behind),
 %next retreat (tail behind)
@@ -648,9 +641,6 @@ set(gcf,'color','w')
 % set(gca,'FontSize',20)
 % set(gcf,'color','w')
 % 
-% [rho,pval_dopamine_decay_tail_exposure_Spearman] = corr(Length_tail_exposure',Beta2(:,2),'Type','Pearson')
-% [rho,pval_dopamine_decay_time_near_object_Spearman] = corr(Length_frame_within',Beta2(:,2),'Type','Pearson')
-
 %% ROC analysis (fig 6i)
 
 % test phase coding

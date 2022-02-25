@@ -1,5 +1,6 @@
 %% Moseq_DLC_2107.m
-%  this code creates a portion of the color and line plots for Figure 5
+%  This codes analyze Moseq data of behavior syllables using XY label with DLC,
+%  creating a portion of the color and line plots for Figure 5 (b/c/f)
 
 %  input: akiti_miceID_210318.xlsx, DLC_label.mat file for each session, 
 %         MiceIndex_wLabels_combine3L_update.mat
@@ -8,10 +9,6 @@
 clear
 close all
 clc
-
-%This codes analyze Moseq data of behavior syllables using XY label with DLC
-% Within MiceIndex_wLabels.mat:
-% In 'Mice', ExpDay has moseq_align data, same length as DLC
 
 cd('/Users/cakiti/Dropbox (Uchida Lab)/Korleki Akiti/Behavior/novelty_paper_2021')
 [animal_info,text,raw] = xlsread('akiti_miceID_210318.xlsx');
@@ -301,15 +298,6 @@ stim_type = [zeros(1,length(Syl9_freq_retreat_multi{1})),zeros(1,length(Syl9_fre
     3*ones(1,length(Syl9_freq_retreat_multi{4})),3*ones(1,length(Syl9_freq_session_multi{4}))];
 p_anova_bout = anovan(y,{trigger_type,stim_type});
 
-[h,p_ttest_stim_vs_context_retreat_syl9] = ttest2(Syl9_freq_retreat_multi{1},Syl9_freq_retreat_multi{2})
-[h,p_ttest_retreat_vs_whole_stim_syl9] = ttest(Syl9_freq_retreat_multi{1},Syl9_freq_session_multi{1})
-
-[h,p_ttest_saline_vs_6OHDA_retreat_syl9] = ttest2(Syl9_freq_retreat_multi{3},Syl9_freq_retreat_multi{4})
-[h,p_ttest_retreat_vs_whole_saline_syl9] = ttest(Syl9_freq_retreat_multi{3},Syl9_freq_session_multi{3})
-    
-[h,p_ttest_stim_vs_6OHDA_retreat_syl9] = ttest2(Syl9_freq_retreat_multi{1},Syl9_freq_retreat_multi{4})   
-[h,p_ttest_context_vs_6OHDA_retreat_syl9] = ttest2(Syl9_freq_retreat_multi{2},Syl9_freq_retreat_multi{4}) 
-
 y = [Syl9_freq_tail_behind_multi{1}, Syl9_freq_tail_exposure_multi{1}, Syl9_freq_tail_behind_multi{2}, Syl9_freq_tail_exposure_multi{2},...
     Syl9_freq_tail_behind_multi{3}, Syl9_freq_tail_exposure_multi{3}, Syl9_freq_tail_behind_multi{4}, Syl9_freq_tail_exposure_multi{4}];
 trigger_type = [ones(1,length(Syl9_freq_tail_behind_multi{1})),zeros(1,length(Syl9_freq_tail_exposure_multi{1})),...
@@ -329,7 +317,6 @@ for i = 1:length(bout_tail_each_stim)
     Approach_mouse = [Approach_mouse,approach_mouse];
 end
 ind = find(Approach_mouse);
-[h,p_ttest_tail_behind_vs_exposure_stim_syl9] = ttest(Syl9_freq_tail_behind_multi{1}(ind),Syl9_freq_tail_exposure_multi{1}(ind)) 
 
 %% transition (Fig 5f)
 group_compare = [3 4];
@@ -384,5 +371,3 @@ set(gca,'tickdir','out')
 set(gca,'TickLength',2*(get(gca,'TickLength')))
 set(gca,'FontSize',10)
 
-% cd('/Users/mitsukouchida/Dropbox (Uchida Lab)/Korleki Akiti (1)/Behavior');
-% save('syl79_timecourse','Syl79_trial_mean','Syl79_trial_ste','Syl79_Trial')

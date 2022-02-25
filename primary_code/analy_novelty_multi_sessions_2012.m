@@ -48,7 +48,7 @@ load('DLC_label','Labels')
 session_time = ((1:size(Labels,1))/15)/60; %min
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% noramlized with object position
+% normalized with object position
 
 nose_log = -log10(0.15*Labels(:,32));
 nose_log(find(nose_log>0.5))=0.5;
